@@ -207,7 +207,7 @@ nav.links a:hover, nav.links a.active { color: var(--brand); }
 /* Pricing */
 .head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 44px; }
 .head-row p { max-width: 44ch; color: var(--muted); }
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+.plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 26px; align-items: start; }
 .plan { padding: 34px 28px 28px; display: grid; gap: 16px; min-width: 0; }
 .plan.hot { color: var(--on-brand); }
 .plan h3 { font-size: 1.15rem; }
@@ -392,7 +392,7 @@ footer .logo { font-size: 1.25rem; color: var(--ink); }
             <tbody>
               <tr><td>Ra bản demo</td><td>3–4 tuần</td><td>2–3 ngày</td></tr>
               <tr><td>Hoàn thành</td><td>2–3 tháng</td><td>1–2 tuần</td></tr>
-              <tr><td>Chi phí tham khảo</td><td>30–60 triệu</td><td>từ 9,9 triệu</td></tr>
+              <tr><td>Chi phí tham khảo</td><td>30–60 triệu</td><td>từ 10 triệu</td></tr>
               <tr><td>Sở hữu mã nguồn</td><td>Tuỳ hợp đồng</td><td>Luôn luôn</td></tr>
             </tbody>
           </table>
@@ -414,33 +414,40 @@ footer .logo { font-size: 1.25rem; color: var(--ink); }
     <div class="wrap">
       <div class="head-row">
         <h2 class="big"><span class="o">Giá trọn gói,</span><br>báo trước khi làm</h2>
-        <p>Không tính theo giờ. Bạn biết chính xác mình trả bao nhiêu và nhận được gì.</p>
+        <p>Giá theo mức độ phức tạp, không tính theo giờ làm. Bạn biết trước mình trả bao nhiêu và nhận được gì.</p>
       </div>
       <div class="plans">
         <article class="folder plan">
-          <h3>Một quy trình</h3>
-          <div class="price">từ 9,9tr<small>₫</small></div>
-          <div class="meta">Số hoá 1 quy trình · 1–2 tuần</div>
-          <ul><li>Khảo sát và vẽ lại quy trình</li><li>Biểu mẫu, luồng duyệt, thông báo</li><li>Phân quyền theo vai trò</li><li>2 vòng chỉnh sửa</li><li>Bảo hành 30 ngày</li></ul>
+          <h3>Dashboard &amp; báo cáo</h3>
+          <div class="price">từ 2tr<small>₫</small></div>
+          <div class="meta">Gom dữ liệu Excel/Sheets thành báo cáo</div>
+          <ul><li>Mức S 2–4 triệu: 1 nguồn dữ liệu, 1 dashboard, giao trong 3–5 ngày</li><li>Mức M 12–25 triệu: nhiều nguồn, tự cập nhật, phân quyền xem</li><li>Mức L 30–50 triệu: nhiều phòng ban, cảnh báo, AI tóm tắt</li><li>Vận hành từ 300 nghìn/tháng</li></ul>
+          <a class="btn btn-dark" href="#lien-he">Chọn gói này</a>
+        </article>
+        <article class="folder plan">
+          <h3>Ứng dụng nghiệp vụ</h3>
+          <div class="price">10–80tr<small>₫</small></div>
+          <div class="meta">Số hoá một nghiệp vụ của doanh nghiệp</div>
+          <ul><li>Mức S 10–20 triệu: 1 nghiệp vụ (ví dụ nhập–xuất–tồn)</li><li>Mức M 25–45 triệu: kho, bán hàng, báo cáo, in phiếu, phân quyền</li><li>Mức L 50–80 triệu: nhiều chi nhánh, nhập dữ liệu cũ, tích hợp sàn/Zalo</li><li>Vận hành từ 300 nghìn/tháng</li></ul>
           <a class="btn btn-dark" href="#lien-he">Chọn gói này</a>
         </article>
         <article class="folder plan hot">
           <span class="tag">Phổ biến nhất</span>
-          <h3>Nhiều quy trình</h3>
-          <div class="price">từ 24,9tr<small>₫</small></div>
-          <div class="meta">2–4 quy trình liên thông · 3–5 tuần</div>
-          <ul><li>Trang quản trị, báo cáo tổng hợp</li><li>Cơ sở dữ liệu dùng chung</li><li>1–2 tích hợp (Excel, Zalo, kế toán)</li><li>4 vòng chỉnh sửa</li><li>Hướng dẫn nhân viên sử dụng</li><li>Bảo hành 60 ngày</li></ul>
+          <h3>CRM, HRM, ERP theo module</h3>
+          <div class="price">25–60tr<small>₫</small></div>
+          <div class="meta">Mỗi module chuẩn · bộ 3 module trở lên 90–150 triệu</div>
+          <ul><li>Khảo sát quy trình trước: 6–8 triệu, trừ vào hợp đồng nếu ký trong 30 ngày</li><li>Quy trình duyệt, phân quyền, nhật ký thao tác</li><li>Đào tạo và tài liệu hướng dẫn</li><li>Vận hành từ 400 nghìn/module/tháng</li></ul>
           <a class="btn" href="#lien-he">Chọn gói này</a>
         </article>
         <article class="folder plan">
-          <h3>Hệ thống doanh nghiệp</h3>
-          <div class="price">từ 59tr<small>₫</small></div>
-          <div class="meta">Nhiều phòng ban · 6–10 tuần</div>
-          <ul><li>Triển khai theo từng giai đoạn</li><li>Tích hợp ERP, CRM, kế toán đang dùng</li><li>Phân quyền nhiều cấp, nhật ký thao tác</li><li>Tài liệu kỹ thuật bàn giao</li><li>Bảo hành 90 ngày</li></ul>
+          <h3>Công cụ &amp; trợ lý AI</h3>
+          <div class="price">từ 8tr<small>₫</small></div>
+          <div class="meta">Chatbot, trợ lý hỏi đáp, tự động hoá</div>
+          <ul><li>Mức S 8–20 triệu: chatbot/trợ lý cơ bản</li><li>Mức M 30–70 triệu: hỏi đáp tài liệu nội bộ, tự động hoá quy trình</li><li>Mức L 100–200 triệu trở lên: nhiều agent phối hợp</li><li>Vận hành từ 500 nghìn/tháng</li></ul>
           <a class="btn btn-dark" href="#lien-he">Chọn gói này</a>
         </article>
       </div>
-      <p class="note">Giá chưa gồm VAT, tên miền và phí máy chủ hằng năm. Dịch vụ tích hợp riêng lẻ, cứu và nâng cấp phần mềm được báo giá riêng sau buổi khảo sát quy trình.</p>
+      <p class="note">Giá chưa gồm VAT, tên miền, phí máy chủ (khoảng 150–300 nghìn/tháng) và phí API AI dùng thực tế. Phí vận hành gồm vá lỗi, bảo mật, sao lưu và hỗ trợ qua Zalo giờ hành chính. Khoảng giá chốt chính xác sau buổi khảo sát.</p>
     </div>
   </section>
 
@@ -456,9 +463,9 @@ footer .logo { font-size: 1.25rem; color: var(--ink); }
         <details><summary>Khác gì so với tự dùng ChatGPT, Cursor hay Lovable?</summary><p>Các công cụ AI giúp ra bản nháp rất nhanh, nhưng đưa lên chạy thật là chuyện khác: bảo mật, dữ liệu khách hàng, máy chủ, tên miền và sửa lỗi khi có sự cố. Chúng tôi dùng chính những công cụ đó để làm nhanh, và có kỹ sư chịu trách nhiệm phần còn lại.</p></details>
         <details><summary>Tôi không biết gì về kỹ thuật thì có làm được không?</summary><p>Được. Bạn chỉ cần kể vấn đề của mình bằng lời thường. Chúng tôi lo phần kỹ thuật và giải thích mọi thứ bằng ngôn ngữ dễ hiểu.</p></details>
         <details><summary>Tôi cần chuẩn bị những gì?</summary><p>Chỉ cần kể quy trình hiện tại. Nếu có thì gửi thêm sơ đồ quy trình, biểu mẫu, file Excel đang dùng và danh sách vai trò tham gia (ai tạo, ai duyệt). Thiếu phần nào chúng tôi sẽ gợi ý.</p></details>
-        <details><summary>Bao lâu thì xong?</summary><p>Một quy trình 1–2 tuần, nhiều quy trình liên thông 3–5 tuần, hệ thống nhiều phòng ban 6–10 tuần. Gói nào bạn cũng có bản demo bấm thử được sau 2–3 ngày.</p></details>
-        <details><summary>Giá đã gồm những gì? Có phát sinh chi phí không?</summary><p>Giá trọn gói gồm thiết kế, lập trình, kiểm thử, số vòng chỉnh sửa của gói và bảo hành; chưa gồm VAT, tên miền và phí máy chủ hằng năm. Chi phí chỉ phát sinh khi bạn muốn thêm tính năng ngoài phạm vi đã chốt, và luôn được báo giá trước để bạn đồng ý.</p></details>
-        <details><summary>Thanh toán như thế nào?</summary><p>Thông thường chia hai đợt: 50% khi bắt đầu và 50% khi bàn giao. Dự án lớn có thể chia theo từng giai đoạn.</p></details>
+        <details><summary>Bao lâu thì xong?</summary><p>Mức đơn giản 1–3 tuần, mức trung bình 3–5 tuần, mức phức tạp 4–8 tuần (riêng dashboard mức S chỉ 3–5 ngày). Gói nào bạn cũng có bản demo bấm thử được sau 2–3 ngày.</p></details>
+        <details><summary>Giá đã gồm những gì? Có phát sinh chi phí không?</summary><p>Giá trọn gói gồm thiết kế, lập trình, kiểm thử, số vòng chỉnh sửa của gói và bảo hành; chưa gồm VAT, tên miền, phí máy chủ và phí API AI dùng thực tế. Chi phí chỉ phát sinh khi bạn muốn thêm tính năng ngoài phạm vi đã chốt, và luôn được báo giá trước để bạn đồng ý.</p></details>
+        <details><summary>Thanh toán như thế nào?</summary><p>Thông thường chia ba đợt: 50% khi ký, 30% khi bàn giao bản chạy thử, 20% khi nghiệm thu. Phí vận hành tính sau nghiệm thu.</p></details>
         <details><summary>Tôi muốn thêm tính năng giữa chừng được không?</summary><p>Được. Chúng tôi ước lượng thời gian và chi phí cho phần thêm, bạn đồng ý thì mới làm. Cũng có thể để sang giai đoạn sau để không ảnh hưởng ngày ra mắt.</p></details>
         <details><summary>Ai sở hữu mã nguồn? Sau này tôi thuê đội khác được không?</summary><p>Bạn sở hữu 100% mã nguồn. Mã nguồn, tài khoản máy chủ và tên miền đều đứng tên bạn. Chúng tôi dùng công nghệ phổ biến và bàn giao tài liệu hướng dẫn, nên đội kỹ thuật khác có thể tiếp nhận dễ dàng.</p></details>
         <details><summary>Dữ liệu của tôi và khách hàng của tôi có an toàn không?</summary><p>Kỹ sư rà soát bảo mật trước khi bàn giao: đăng nhập, phân quyền, mã hoá kết nối, không để lộ mật khẩu hay khoá truy cập trong mã. Dữ liệu nằm trên máy chủ đứng tên bạn.</p></details>
