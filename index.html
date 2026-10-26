@@ -5,380 +5,361 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zenflorix Vibe Code</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Zenflorix Vibe Code: biến ý tưởng thành website, ứng dụng và công cụ nội bộ trong vài ngày bằng phát triển có AI hỗ trợ.">
+<meta name="description" content="Zenflorix: biến ý tưởng thành website, ứng dụng và công cụ nội bộ trong vài ngày bằng phát triển có AI hỗ trợ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=League+Spartan:wght@800&display=swap">
 <style>
 html { color-scheme: light; } body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important; }
-/* Layout: một cột rộng 1120px; hero chia đôi "câu lệnh → sản phẩm", các khối dịch vụ dạng lưới, quy trình là chuỗi bước thật */
+/* Layout: nền trắng ngà ấm, cam là màu nhấn duy nhất; hero chia đôi với khối hình xoắn 3D, các thẻ bo góc có "tai" như bìa hồ sơ */
 :root {
-  --bg: #F5F6FA;
+  --bg: #FFF8F3;
   --surface: #FFFFFF;
-  --ink: #141833;
-  --muted: #5B6180;
-  --line: #DDE0EC;
-  --accent: #3B46F1;
-  --accent-ink: #FFFFFF;
-  --spark: #F2A93B;
-  --term-bg: #141833;
-  --term-fg: #E6E8F5;
-  --term-dim: #8C92B8;
-  --ok: #2E9E6B;
-  --display: "League Spartan", "Be Vietnam Pro", system-ui, sans-serif;
-  --body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
-  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --ink: #15161B;
+  --muted: #6C6E78;
+  --line: #F0E3D9;
+  --orange: #FF6A2B;
+  --orange-deep: #E5541A;
+  --orange-soft: #FFEBDF;
+  --on-orange: #FFFFFF;
+  --shadow: rgba(120, 55, 20, 0.10);
+  --ok: #1F9D62;
+  --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --logo: "League Spartan", "Be Vietnam Pro", system-ui, sans-serif;
+  --r: 22px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0E1124; --surface: #161A33; --ink: #ECEEF8; --muted: #A2A8C8; --line: #2A2F52;
-    --accent: #7A83FF; --accent-ink: #0E1124; --spark: #F5B95A;
-    --term-bg: #080A18; --term-fg: #E6E8F5; --term-dim: #7D84AE; --ok: #4CC48D;
+    --bg: #14110F; --surface: #201B18; --ink: #F6EFEA; --muted: #B3A79F; --line: #342B25;
+    --orange: #FF7A3D; --orange-deep: #FF6A2B; --orange-soft: #3A2419; --on-orange: #1A0F09;
+    --shadow: rgba(0, 0, 0, 0.45); --ok: #4CC48D;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0E1124; --surface: #161A33; --ink: #ECEEF8; --muted: #A2A8C8; --line: #2A2F52;
-  --accent: #7A83FF; --accent-ink: #0E1124; --spark: #F5B95A;
-  --term-bg: #080A18; --term-fg: #E6E8F5; --term-dim: #7D84AE; --ok: #4CC48D;
+  --bg: #14110F; --surface: #201B18; --ink: #F6EFEA; --muted: #B3A79F; --line: #342B25;
+  --orange: #FF7A3D; --orange-deep: #FF6A2B; --orange-soft: #3A2419; --on-orange: #1A0F09;
+  --shadow: rgba(0, 0, 0, 0.45); --ok: #4CC48D;
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
-body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-
-.wrap { max-width: 1120px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
-.band { padding-block: 88px; }
-.band + .band { border-top: 1px solid var(--line); }
-
-h1, h2, h3 { font-family: var(--display); line-height: 1.1; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2.4rem, 5.6vw, 4.1rem); font-weight: 800; }
-h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; }
-h3 { font-size: 1.22rem; font-weight: 700; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { margin: 0; line-height: 1.1; text-wrap: balance; letter-spacing: -0.02em; }
 p { margin: 0; }
-.eyebrow { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-.lede { color: var(--muted); font-size: 1.12rem; max-width: 58ch; }
-.section-head { display: grid; gap: 14px; margin-bottom: 44px; max-width: 720px; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 72px; }
+.o { color: var(--orange); }
+.kicker { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); }
+.caps { text-transform: uppercase; font-weight: 500; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.3; letter-spacing: 0.01em; }
+.caps b { font-weight: 800; }
+.big { font-size: clamp(2.3rem, 5.4vw, 4.3rem); font-weight: 700; }
+.muted { color: var(--muted); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font: 600 0.95rem var(--font); text-decoration: none; border: 0; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-orange { background: var(--orange); color: var(--on-orange); border-radius: 10px; }
+.btn-orange:hover { background: var(--orange-deep); }
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.btn-sm { padding: 9px 18px; font-size: 0.86rem; }
 
 /* Header */
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
-.logo { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
-.wordmark { font-family: var(--display); font-weight: 800; font-size: 1.55rem; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
-.wordmark .dot { margin-left: 0.18em; }
-.logo small { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
-@media (max-width: 420px) { .logo small { display: none; } }
-nav.links { display: flex; gap: 26px; font-size: 0.95rem; }
-nav.links a { text-decoration: none; color: var(--muted); }
-nav.links a:hover { color: var(--ink); }
-@media (max-width: 820px) { nav.links { display: none; } }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 76px; }
+.logo { text-decoration: none; font-family: var(--logo); font-weight: 800; font-size: 1.6rem; letter-spacing: -0.01em; line-height: 1; display: inline-flex; align-items: baseline; }
+.logo .dot { color: var(--orange); margin-left: 0.14em; }
+nav.links { display: flex; gap: 34px; font-size: 0.92rem; font-weight: 500; }
+nav.links a { text-decoration: none; }
+nav.links a:hover, nav.links a.active { color: var(--orange); }
+@media (max-width: 860px) { nav.links { display: none; } }
 
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 0.98rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: var(--body); transition: transform .15s ease, background .15s ease; }
-.btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-primary:hover { transform: translateY(-1px); }
-.btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
-.btn-ghost:hover { border-color: var(--ink); }
-.btn-sm { padding: 8px 14px; font-size: 0.9rem; }
+/* Folder card: thẻ bo góc có "tai" nhô lên ở góc phải */
+.folder { position: relative; background: var(--card, var(--surface)); border-radius: 0 var(--r) var(--r) var(--r); border-top-left-radius: var(--r); margin-top: 18px; filter: drop-shadow(0 18px 30px var(--shadow)); }
+.folder::before { content: ""; position: absolute; top: -18px; right: 0; width: 46%; height: 19px; background: var(--card, var(--surface)); border-radius: 20px 20px 0 0; }
+.folder::after { content: ""; position: absolute; top: -18px; right: calc(46% - 1px); width: 22px; height: 19px; background: radial-gradient(circle at 0 0, transparent 18px, var(--card, var(--surface)) 18.5px); }
+.folder.flip { border-top-left-radius: 0; border-top-right-radius: var(--r); }
+.folder.flip::before { right: auto; left: 0; }
+.folder.flip::after { right: auto; left: calc(46% - 1px); background: radial-gradient(circle at 100% 0, transparent 18px, var(--card, var(--surface)) 18.5px); }
 
 /* Hero */
-.hero { padding-block: 72px 88px; }
-.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
-.hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero h1 em { font-style: normal; color: var(--accent); }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-.facts { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 8px; }
-.fact { display: grid; }
-.fact b { font-family: var(--display); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
-.fact span { font-size: 0.86rem; color: var(--muted); }
-@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; gap: 40px; } }
-
-.term { background: var(--term-bg); color: var(--term-fg); border-radius: 14px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.7; box-shadow: 0 30px 60px -30px rgba(20, 24, 51, 0.55); min-width: 0; overflow: hidden; }
-.term-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.term-bar i { width: 10px; height: 10px; border-radius: 50%; background: #3A3F66; }
-.term-bar span { margin-left: 8px; color: var(--term-dim); font-size: 0.78rem; }
-.term-body { padding: 18px 20px 22px; display: grid; gap: 6px; overflow-x: auto; }
-.term .p { color: var(--spark); }
-.term .dim { color: var(--term-dim); }
-.term .ok { color: var(--ok); }
-.term .line { white-space: pre-wrap; }
-.term .reveal { animation: rise .5s ease both; }
-.term .reveal:nth-child(2) { animation-delay: .5s; } .term .reveal:nth-child(3) { animation-delay: .9s; }
-.term .reveal:nth-child(4) { animation-delay: 1.3s; } .term .reveal:nth-child(5) { animation-delay: 1.7s; }
-.term .reveal:nth-child(6) { animation-delay: 2.1s; } .term .reveal:nth-child(7) { animation-delay: 2.5s; }
-@keyframes rise { from { transform: translateY(4px); opacity: .25; } to { transform: none; opacity: 1; } }
-.cursor { display: inline-block; width: 8px; height: 1em; background: var(--spark); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
-@keyframes blink { 50% { opacity: 0; } }
+.hero { padding-block: 40px 72px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 28px 48px; grid-template-areas: "title art" "intro art" "stats art"; }
+.hero h1 { grid-area: title; font-size: clamp(2.6rem, 6.2vw, 4.9rem); font-weight: 700; line-height: 1.05; padding-top: 24px; }
+.hero-intro { grid-area: intro; display: flex; gap: 26px; align-items: center; margin-top: 18px; padding-right: 40px; }
+@media (max-width: 920px) { .hero-intro { padding-right: 0; } }
+.thumb { width: 116px; aspect-ratio: 1; border-radius: 16px; overflow: hidden; flex-shrink: 0; box-shadow: 0 12px 24px var(--shadow); max-width: 100%; }
+.hero-intro p { color: var(--muted); max-width: 34ch; font-size: 0.98rem; }
+.hero-intro .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.hero-stats { grid-area: stats; display: flex; flex-wrap: wrap; gap: 22px 40px; align-self: end; }
+.stat { display: flex; align-items: center; gap: 14px; }
+.icon-box { width: 48px; height: 48px; border-radius: 12px; background: var(--surface); display: grid; place-items: center; box-shadow: 0 8px 18px var(--shadow); color: var(--orange); flex-shrink: 0; }
+.icon-box svg { width: 24px; height: 24px; }
+.stat b { display: block; font-size: 1.5rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.84rem; color: var(--muted); }
+.hero-art { grid-area: art; position: relative; min-width: 0; }
+.art-card { --card: var(--orange); overflow: visible; aspect-ratio: 1 / 0.93; max-width: 100%; }
+.art-card canvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: inherit; }
+.float-card { position: absolute; left: -36px; bottom: -64px; width: min(290px, 78%); padding: 26px 26px 24px; display: grid; gap: 10px; }
+.float-card .nums { display: flex; gap: 22px; white-space: nowrap; color: var(--orange); font-size: 1.3rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.float-card h3 { font-size: 1.08rem; }
+.float-card p { font-size: 0.84rem; color: var(--muted); }
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; grid-template-areas: "title" "intro" "art" "stats"; }
+  .hero-art { margin-bottom: 120px; }
+  .float-card { left: 16px; bottom: -100px; }
+}
+@media (max-width: 520px) { .hero-intro { flex-direction: column; align-items: flex-start; } .thumb { width: 88px; } }
 
 /* Services */
-.grid-svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.svc { background: var(--surface); padding: 30px 28px; display: grid; gap: 12px; align-content: start; min-width: 0; }
-.svc-tag { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); }
-.svc p { color: var(--muted); font-size: 0.97rem; }
-.svc ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 0.92rem; }
-.svc li::before { content: "→ "; color: var(--accent); font-family: var(--mono); }
-@media (max-width: 900px) { .grid-svc { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .grid-svc { grid-template-columns: 1fr; } }
+.svc-top { display: grid; grid-template-columns: 1fr 1fr 1.05fr; gap: 32px; align-items: center; }
+.svc { padding: 34px 28px 30px; display: grid; gap: 12px; align-content: start; min-height: 230px; min-width: 0; text-decoration: none; }
+.svc .arrow { width: 26px; height: 26px; color: var(--orange); justify-self: end; margin-bottom: 8px; }
+.svc h3 { font-size: 1.12rem; font-weight: 700; }
+.svc p { font-size: 0.88rem; color: var(--muted); }
+.svc.hot { --card: var(--orange); color: var(--on-orange); }
+.svc.hot p, .svc.hot .arrow { color: color-mix(in srgb, var(--on-orange) 82%, var(--orange)); }
+.svc-text { display: grid; gap: 16px; justify-items: end; text-align: right; }
+.svc-text p { color: var(--muted); font-size: 0.92rem; max-width: 40ch; }
+.svc-more { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+.svc-more .svc { min-height: 0; }
+@media (max-width: 980px) { .svc-top { grid-template-columns: 1fr 1fr; } .svc-text { grid-column: 1 / -1; grid-row: 1; justify-items: start; text-align: left; } .svc-more { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .svc-top, .svc-more { grid-template-columns: 1fr; } }
 
-/* Process */
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; list-style: none; padding: 0; margin: 0; }
-.step { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); min-width: 0; }
-.step-num { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); }
-.step-time { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
-.step p { color: var(--muted); font-size: 0.95rem; }
-@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 540px) { .steps { grid-template-columns: 1fr; } }
+/* Partner + process */
+.partner { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px 64px; align-items: start; }
+.partner > * { min-width: 0; }
+.partner-left { display: grid; gap: 18px; }
+.partner-left > p { color: var(--muted); max-width: 52ch; }
+.compare { background: var(--surface); border-radius: 18px; overflow-x: auto; box-shadow: 0 14px 30px var(--shadow); margin-top: 8px; }
+.compare table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 400px; }
+.compare th, .compare td { padding: 13px 18px; text-align: left; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.compare tr:last-child td { border-bottom: 0; }
+.compare th { font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.compare td:nth-child(3), .compare th:nth-child(3) { color: var(--orange); font-weight: 700; }
+.steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; }
+.step { display: grid; grid-template-columns: 52px 1fr auto; gap: 16px; align-items: center; background: var(--surface); border-radius: 16px; padding: 16px 20px; box-shadow: 0 10px 22px var(--shadow); }
+.step-n { width: 52px; height: 52px; border-radius: 14px; background: var(--orange-soft); color: var(--orange); display: grid; place-items: center; font-weight: 800; font-size: 1.1rem; }
+.step h3 { font-size: 1rem; }
+.step p { font-size: 0.86rem; color: var(--muted); }
+.step time { font-size: 0.78rem; font-weight: 600; color: var(--orange); white-space: nowrap; }
+@media (max-width: 920px) { .partner { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .step { grid-template-columns: 44px 1fr; } .step-n { width: 44px; height: 44px; } .step time { grid-column: 2; } }
 
 /* Pricing */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
-.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 30px 26px; display: grid; gap: 16px; min-width: 0; }
-.plan.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-.plan-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.badge { font-family: var(--mono); font-size: 0.72rem; padding: 4px 9px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); white-space: nowrap; }
-.price { font-family: var(--display); font-size: 2rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
-.price small { font-family: var(--body); font-size: 0.9rem; font-weight: 500; color: var(--muted); }
-.plan-meta { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
-.plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; font-size: 0.94rem; }
-.plan li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; }
-.plan li::before { content: "✓"; color: var(--ok); font-weight: 700; }
-.note { margin-top: 22px; font-size: 0.88rem; color: var(--muted); }
-@media (max-width: 900px) { .plans { grid-template-columns: 1fr; max-width: 520px; } }
-
-/* Why */
-.why { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-.why > * { min-width: 0; }
-.compare { border: 1px solid var(--line); border-radius: 14px; overflow-x: auto; background: var(--surface); }
-.compare table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 420px; }
-.compare th, .compare td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); }
-.compare tr:last-child td { border-bottom: 0; }
-.compare th { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-.compare td:nth-child(3) { color: var(--accent); font-weight: 600; }
-.compare td { font-variant-numeric: tabular-nums; }
-.why-list { display: grid; gap: 22px; }
-.why-item { display: grid; gap: 6px; }
-.why-item p { color: var(--muted); }
-@media (max-width: 900px) { .why { grid-template-columns: 1fr; gap: 36px; } }
+.head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 44px; }
+.head-row p { max-width: 44ch; color: var(--muted); }
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+.plan { padding: 34px 28px 28px; display: grid; gap: 16px; min-width: 0; }
+.plan.hot { --card: var(--orange); color: var(--on-orange); }
+.plan h3 { font-size: 1.15rem; }
+.plan .price { font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.plan .price small { font-size: 0.85rem; font-weight: 500; }
+.plan .meta { font-size: 0.82rem; color: var(--muted); }
+.plan.hot .meta, .plan.hot li { color: color-mix(in srgb, var(--on-orange) 88%, var(--orange)); }
+.plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 0.9rem; }
+.plan li { display: grid; grid-template-columns: 20px 1fr; gap: 6px; }
+.plan li::before { content: "✓"; font-weight: 800; color: var(--orange); }
+.plan.hot li::before { color: var(--on-orange); }
+.plan.hot .btn { background: var(--on-orange); color: var(--orange-deep); }
+.tag { justify-self: start; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; background: color-mix(in srgb, var(--on-orange) 22%, var(--orange)); }
+.note { margin-top: 24px; font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 920px) { .plans { grid-template-columns: 1fr; max-width: 520px; } }
 
 /* FAQ */
-.faq { display: grid; gap: 0; max-width: 820px; border-top: 1px solid var(--line); }
-.faq details { border-bottom: 1px solid var(--line); padding-block: 18px; }
-.faq summary { cursor: pointer; font-weight: 600; font-size: 1.04rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start; }
+.faq-grid > * { min-width: 0; }
+.faq { display: grid; gap: 12px; }
+.faq details { background: var(--surface); border-radius: 16px; padding: 18px 22px; box-shadow: 0 8px 18px var(--shadow); }
+.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-size: 1.2rem; line-height: 1; }
-.faq details[open] summary::after { content: "–"; }
-.faq details p { margin-top: 10px; color: var(--muted); max-width: 68ch; }
+.faq summary::after { content: "+"; flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: var(--orange-soft); color: var(--orange); display: grid; place-items: center; font-weight: 700; line-height: 1; }
+.faq details[open] summary::after { content: "–"; background: var(--orange); color: var(--on-orange); }
+.faq details p { margin-top: 10px; color: var(--muted); font-size: 0.94rem; }
+@media (max-width: 920px) { .faq-grid { grid-template-columns: 1fr; gap: 28px; } }
 
 /* Contact */
-.contact { background: var(--ink); color: var(--bg); }
-.contact .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; }
-.contact h2 { color: var(--bg); }
-.contact .lede { color: color-mix(in srgb, var(--bg) 72%, var(--ink)); }
-.channels { display: grid; gap: 14px; margin-top: 28px; }
-.channel { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--bg) 22%, var(--ink)); border-radius: 12px; min-width: 0; }
+.contact-box { --card: var(--orange); padding: 48px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 44px; color: var(--on-orange); }
+.contact-box > * { min-width: 0; }
+.contact-box h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
+.contact-box .lead { margin-top: 14px; color: color-mix(in srgb, var(--on-orange) 85%, var(--orange)); }
+.channels { display: grid; gap: 12px; margin-top: 26px; }
+.channel { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 16px; border-radius: 14px; background: color-mix(in srgb, var(--on-orange) 14%, var(--orange)); }
 .channel div { display: grid; min-width: 0; }
-.channel span { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--bg) 60%, var(--ink)); }
-.channel b { font-weight: 600; user-select: all; overflow-wrap: anywhere; }
-.copy { background: transparent; color: var(--bg); border: 1px solid color-mix(in srgb, var(--bg) 30%, var(--ink)); border-radius: 8px; padding: 6px 12px; font-family: var(--mono); font-size: 0.78rem; cursor: pointer; flex-shrink: 0; }
-.copy:hover { border-color: var(--bg); }
-form.brief { background: var(--surface); color: var(--ink); border-radius: 16px; padding: 28px; display: grid; gap: 16px; min-width: 0; }
+.channel span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8; }
+.channel b { user-select: all; overflow-wrap: anywhere; }
+.copy { background: var(--on-orange); color: var(--orange-deep); border: 0; border-radius: 8px; padding: 6px 12px; font: 600 0.78rem var(--font); cursor: pointer; flex-shrink: 0; }
+form.brief { background: var(--surface); color: var(--ink); border-radius: 18px; padding: 26px; display: grid; gap: 14px; }
 .field { display: grid; gap: 6px; }
-.field label { font-size: 0.88rem; font-weight: 600; }
-.field input, .field select, .field textarea { font: inherit; font-size: 0.96rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; width: 100%; }
-.field textarea { min-height: 110px; resize: vertical; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field label { font-size: 0.85rem; font-weight: 600; }
+.field input, .field select, .field textarea { font: inherit; font-size: 0.95rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; width: 100%; }
+.field textarea { min-height: 100px; resize: vertical; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-msg { font-size: 0.9rem; color: var(--ok); }
-@media (max-width: 900px) { .contact .wrap { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 920px) { .contact-box { grid-template-columns: 1fr; padding: 32px 22px; } }
 @media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
 
-footer { padding-block: 30px; font-size: 0.86rem; color: var(--muted); }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-@media (max-width: 600px) { .band { padding-block: 64px; } }
+footer { padding-block: 34px 40px; font-size: 0.86rem; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; }
+footer .logo { font-size: 1.25rem; color: var(--ink); }
+@media (max-width: 600px) { section { padding-block: 56px; } }
 </style>
 
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Zenflorix, về đầu trang"><span class="wordmark">Zenflorix<span class="dot">.</span></span><small>vibe code</small></a>
+    <a class="logo" href="#top" aria-label="Zenflorix, về đầu trang">Zenflorix<span class="dot">.</span></a>
     <nav class="links" aria-label="Điều hướng chính">
+      <a href="#top" class="active">Trang chủ</a>
       <a href="#dich-vu">Dịch vụ</a>
       <a href="#quy-trinh">Quy trình</a>
       <a href="#bang-gia">Bảng giá</a>
       <a href="#hoi-dap">Hỏi đáp</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#lien-he">Nhận báo giá</a>
+    <a class="btn btn-orange btn-sm" href="#lien-he">NHẬN BÁO GIÁ</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <span class="eyebrow">Phát triển phần mềm có AI hỗ trợ</span>
-        <h1>Bạn mô tả bằng lời. <em>Chúng tôi giao sản phẩm chạy được</em> trong vài ngày.</h1>
-        <p class="lede">Zenflorix dùng vibe coding (lập trình cùng AI, có kỹ sư kiểm soát chất lượng) để làm website, ứng dụng web và công cụ nội bộ cho doanh nghiệp nhỏ, cửa hàng và startup. Nhanh hơn cách làm truyền thống, chi phí dễ chịu hơn, và bạn vẫn sở hữu toàn bộ mã nguồn.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#lien-he">Gửi ý tưởng của bạn</a>
-          <a class="btn btn-ghost" href="#bang-gia">Xem bảng giá</a>
-        </div>
-        <div class="facts">
-          <div class="fact"><b>3–7 ngày</b><span>cho một landing page</span></div>
-          <div class="fact"><b>100%</b><span>mã nguồn thuộc về bạn</span></div>
-          <div class="fact"><b>30 ngày</b><span>bảo hành sau bàn giao</span></div>
+    <div class="wrap hero-grid">
+      <h1><span class="o">Ý tưởng của bạn,</span><br>chạy thật sau vài ngày.</h1>
+
+      <div class="hero-intro">
+        <div class="thumb"><canvas class="swirl" data-variant="thumb" aria-hidden="true"></canvas></div>
+        <div>
+          <p>Zenflorix dùng vibe coding, tức lập trình cùng AI và có kỹ sư kiểm soát chất lượng, để làm website, ứng dụng web và công cụ nội bộ cho doanh nghiệp nhỏ, cửa hàng và startup.</p>
+          <div class="cta"><a class="btn btn-dark btn-sm" href="#lien-he">Gửi ý tưởng</a><a class="btn btn-line btn-sm" href="#bang-gia">Xem bảng giá</a></div>
         </div>
       </div>
 
-      <div class="term" aria-label="Ví dụ: từ yêu cầu đến sản phẩm">
-        <div class="term-bar"><i></i><i></i><i></i><span>zenflorix — brief-to-build</span></div>
-        <div class="term-body">
-          <div class="line reveal"><span class="p">yêu cầu ›</span> Trang đặt bàn cho quán cà phê, có menu, chọn giờ, gửi xác nhận qua Zalo.</div>
-          <div class="line reveal dim">  phân tích: 4 trang · 1 form đặt chỗ · 1 tích hợp Zalo OA</div>
-          <div class="line reveal dim">  dựng giao diện ………………… xong</div>
-          <div class="line reveal dim">  kỹ sư rà soát mã + bảo mật … xong</div>
-          <div class="line reveal dim">  kiểm thử trên điện thoại …… xong</div>
-          <div class="line reveal"><span class="ok">✓ bản demo:</span> quancaphe-demo.zenflorix.vn <span class="dim">(ngày 3)</span></div>
-          <div class="line reveal"><span class="p">bạn ›</span> Đổi màu nút sang nâu, thêm món bánh mới <span class="cursor"></span></div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <div><b>100%</b><span>Mã nguồn thuộc về bạn</span></div>
+        </div>
+        <div class="stat">
+          <span class="icon-box"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="6.5" r="3"/><circle cx="6" cy="16.5" r="3"/><circle cx="18" cy="16.5" r="3"/></svg></span>
+          <div><b>30 ngày</b><span>Bảo hành sau bàn giao</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="folder flip art-card"><canvas class="swirl" data-variant="hero" aria-hidden="true"></canvas></div>
+        <div class="folder float-card">
+          <div class="nums"><span>2–3 ngày</span><span>3–7 ngày</span></div>
+          <h3>Có demo bấm thử được thật nhanh.</h3>
+          <p>Bản demo sau 2–3 ngày, landing page hoàn chỉnh trong 3–7 ngày. Bạn góp ý trên sản phẩm thật, không phải trên giấy.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band" id="dich-vu">
+  <section id="dich-vu">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Dịch vụ</span>
-        <h2>Sáu việc chúng tôi làm tốt nhất</h2>
-        <p class="lede">Mỗi dự án có một kỹ sư phụ trách từ đầu đến cuối. AI giúp viết mã nhanh, còn con người chịu trách nhiệm về chất lượng.</p>
-      </div>
-      <div class="grid-svc">
-        <article class="svc">
-          <span class="svc-tag">web / landing</span>
+      <div class="svc-top">
+        <a class="folder svc" href="#lien-he">
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg>
           <h3>Website & landing page</h3>
-          <p>Trang giới thiệu, trang bán hàng, trang sự kiện. Chuẩn SEO, nhanh trên điện thoại.</p>
-          <ul><li>Tối ưu tốc độ và SEO cơ bản</li><li>Form thu khách tiềm năng</li><li>Tự sửa nội dung không cần code</li></ul>
-        </article>
-        <article class="svc">
-          <span class="svc-tag">app / mvp</span>
+          <p>Trang giới thiệu, trang bán hàng, trang sự kiện. Chuẩn SEO, nhanh trên điện thoại, có form thu khách.</p>
+        </a>
+        <a class="folder svc hot" href="#lien-he">
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg>
           <h3>MVP cho startup</h3>
-          <p>Phiên bản đầu tiên đủ để thử với khách hàng thật hoặc gọi vốn, trong vài tuần thay vì vài tháng.</p>
-          <ul><li>Đăng nhập, phân quyền</li><li>Cơ sở dữ liệu, thanh toán</li><li>Sẵn sàng mở rộng sau này</li></ul>
-        </article>
-        <article class="svc">
-          <span class="svc-tag">internal / tool</span>
-          <h3>Công cụ nội bộ</h3>
-          <p>Thay bảng tính rối bằng phần mềm gọn: quản lý đơn, kho, lịch hẹn, chấm công.</p>
-          <ul><li>Bảng điều khiển số liệu</li><li>Nhập/xuất Excel</li><li>Phân quyền theo vai trò</li></ul>
-        </article>
-        <article class="svc">
-          <span class="svc-tag">automation / ai</span>
-          <h3>Tự động hoá & chatbot AI</h3>
-          <p>Chatbot trả lời khách trên web, Zalo, Facebook; tự động hoá việc lặp lại hằng ngày.</p>
-          <ul><li>Chatbot học từ tài liệu của bạn</li><li>Kết nối Google Sheets, Zalo OA</li><li>Báo cáo tự động</li></ul>
-        </article>
-        <article class="svc">
-          <span class="svc-tag">rescue / upgrade</span>
-          <h3>Cứu & nâng cấp dự án</h3>
-          <p>Dự án tự vibe code bị lỗi, chậm hoặc không triển khai được? Chúng tôi rà soát và sửa.</p>
-          <ul><li>Sửa lỗi, vá bảo mật</li><li>Đưa lên máy chủ thật</li><li>Viết lại phần yếu</li></ul>
-        </article>
-        <article class="svc">
-          <span class="svc-tag">training / coach</span>
-          <h3>Đào tạo vibe coding</h3>
-          <p>Khoá học và kèm cặp cho đội ngũ muốn tự làm công cụ bằng AI một cách an toàn.</p>
-          <ul><li>Lớp nhóm hoặc 1 kèm 1</li><li>Thực hành trên dự án thật</li><li>Quy trình kiểm soát chất lượng</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="quy-trinh">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Quy trình</span>
-        <h2>Từ cuộc gọi đầu tiên đến ngày lên sóng</h2>
-        <p class="lede">Bạn xem bản demo chạy được ngay từ những ngày đầu, nên không có bất ngờ vào phút cuối.</p>
-      </div>
-      <ol class="steps">
-        <li class="step"><span class="step-num">Bước 1</span><h3>Trao đổi ý tưởng</h3><span class="step-time">30 phút · miễn phí</span><p>Bạn kể vấn đề cần giải quyết. Chúng tôi đề xuất phạm vi và báo giá trọn gói.</p></li>
-        <li class="step"><span class="step-num">Bước 2</span><h3>Demo đầu tiên</h3><span class="step-time">2–3 ngày</span><p>Bản chạy được để bạn bấm thử, góp ý trực tiếp trên sản phẩm thay vì trên giấy.</p></li>
-        <li class="step"><span class="step-num">Bước 3</span><h3>Hoàn thiện</h3><span class="step-time">theo gói</span><p>Chỉnh sửa theo góp ý, kỹ sư rà soát mã, bảo mật và kiểm thử trên nhiều thiết bị.</p></li>
-        <li class="step"><span class="step-num">Bước 4</span><h3>Bàn giao & bảo hành</h3><span class="step-time">30 ngày hỗ trợ</span><p>Lên tên miền của bạn, bàn giao mã nguồn, tài liệu hướng dẫn và hỗ trợ sửa lỗi.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="band" id="bang-gia">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Bảng giá</span>
-        <h2>Giá trọn gói, báo trước khi làm</h2>
-        <p class="lede">Không tính theo giờ. Bạn biết chính xác mình trả bao nhiêu và nhận được gì.</p>
-      </div>
-      <div class="plans">
-        <article class="plan">
-          <div class="plan-head"><h3>Khởi động</h3></div>
-          <div class="price">từ 4.900.000₫</div>
-          <div class="plan-meta">landing page · 3–7 ngày</div>
-          <ul><li>1–3 trang, giao diện riêng</li><li>Form liên hệ, nút Zalo/Messenger</li><li>SEO cơ bản, tối ưu điện thoại</li><li>2 vòng chỉnh sửa</li></ul>
-          <a class="btn btn-ghost" href="#lien-he">Chọn gói này</a>
-        </article>
-        <article class="plan featured">
-          <div class="plan-head"><h3>Tăng trưởng</h3><span class="badge">Phổ biến nhất</span></div>
-          <div class="price">từ 14.900.000₫</div>
-          <div class="plan-meta">web app / công cụ nội bộ · 2–3 tuần</div>
-          <ul><li>Đăng nhập, cơ sở dữ liệu</li><li>Trang quản trị, phân quyền</li><li>1–2 tích hợp (thanh toán, Zalo, Sheets)</li><li>4 vòng chỉnh sửa</li><li>Bảo hành 30 ngày</li></ul>
-          <a class="btn btn-primary" href="#lien-he">Chọn gói này</a>
-        </article>
-        <article class="plan">
-          <div class="plan-head"><h3>MVP Startup</h3></div>
-          <div class="price">từ 39.000.000₫</div>
-          <div class="plan-meta">sản phẩm hoàn chỉnh · 4–6 tuần</div>
-          <ul><li>Thiết kế trải nghiệm người dùng</li><li>Tính năng theo yêu cầu, có thanh toán</li><li>Triển khai lên máy chủ, tên miền</li><li>Tài liệu kỹ thuật bàn giao</li><li>Bảo hành 60 ngày</li></ul>
-          <a class="btn btn-ghost" href="#lien-he">Chọn gói này</a>
-        </article>
-      </div>
-      <p class="note">Giá chưa gồm VAT, tên miền và phí máy chủ hằng năm. Dịch vụ cứu dự án và đào tạo được báo giá riêng sau buổi trao đổi đầu tiên.</p>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap why">
-      <div>
-        <div class="section-head" style="margin-bottom:28px">
-          <span class="eyebrow">Vì sao chọn Zenflorix</span>
-          <h2>Tốc độ của AI, sự cẩn thận của kỹ sư</h2>
+          <p>Phiên bản đầu tiên đủ để thử với khách thật hoặc gọi vốn: đăng nhập, cơ sở dữ liệu, thanh toán.</p>
+        </a>
+        <div class="svc-text">
+          <p class="caps">Giúp doanh nghiệp <b>bứt phá</b><br>trong thời đại <b>AI</b></p>
+          <p>Mỗi dự án có một kỹ sư phụ trách từ đầu đến cuối. AI giúp viết mã nhanh, còn con người chịu trách nhiệm về chất lượng.</p>
+          <a class="btn btn-dark btn-sm" href="#lien-he">Tư vấn miễn phí</a>
         </div>
+      </div>
+      <div class="svc-more">
+        <a class="folder svc" href="#lien-he"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg><h3>Công cụ nội bộ</h3><p>Thay bảng tính rối bằng phần mềm gọn: quản lý đơn, kho, lịch hẹn, chấm công.</p></a>
+        <a class="folder svc" href="#lien-he"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg><h3>Tự động hoá & chatbot AI</h3><p>Chatbot trên web, Zalo, Facebook; kết nối Google Sheets, báo cáo tự động.</p></a>
+        <a class="folder svc" href="#lien-he"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg><h3>Cứu & nâng cấp dự án</h3><p>Dự án tự vibe code bị lỗi, chậm hay không triển khai được? Chúng tôi rà soát và sửa.</p></a>
+        <a class="folder svc" href="#lien-he"><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 18 18 6M8 6h10v10"/></svg><h3>Đào tạo vibe coding</h3><p>Lớp nhóm hoặc kèm 1-1 cho đội ngũ muốn tự làm công cụ bằng AI an toàn.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="quy-trinh">
+    <div class="wrap partner">
+      <div class="partner-left">
+        <h2 class="caps"><b>Đối tác công nghệ</b><br>cho doanh nghiệp nhỏ</h2>
+        <p>Tốc độ của AI cộng với sự cẩn thận của kỹ sư. Mỗi dòng mã đều được đọc lại và kiểm thử trước khi đến tay bạn. Mã nguồn, máy chủ và tên miền luôn đứng tên bạn.</p>
         <div class="compare">
           <table>
-            <thead><tr><th>Ví dụ: web app quản lý đơn</th><th>Làm truyền thống</th><th>Zenflorix</th></tr></thead>
+            <thead><tr><th>Ví dụ: web quản lý đơn</th><th>Truyền thống</th><th>Zenflorix</th></tr></thead>
             <tbody>
-              <tr><td>Thời gian ra demo</td><td>3–4 tuần</td><td>2–3 ngày</td></tr>
-              <tr><td>Thời gian hoàn thành</td><td>2–3 tháng</td><td>2–3 tuần</td></tr>
+              <tr><td>Ra bản demo</td><td>3–4 tuần</td><td>2–3 ngày</td></tr>
+              <tr><td>Hoàn thành</td><td>2–3 tháng</td><td>2–3 tuần</td></tr>
               <tr><td>Chi phí tham khảo</td><td>40–80 triệu</td><td>từ 14,9 triệu</td></tr>
               <tr><td>Sở hữu mã nguồn</td><td>Tuỳ hợp đồng</td><td>Luôn luôn</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="why-list">
-        <div class="why-item"><h3>Có người chịu trách nhiệm</h3><p>AI viết mã nhanh nhưng có thể sai. Mỗi dòng mã được kỹ sư của Zenflorix đọc lại, kiểm thử và chịu trách nhiệm trước khi đến tay bạn.</p></div>
-        <div class="why-item"><h3>Thấy sản phẩm thật từ sớm</h3><p>Bạn góp ý trên bản demo bấm được, không phải trên bản vẽ. Sai hướng thì sửa ngay khi còn rẻ.</p></div>
-        <div class="why-item"><h3>Không bị khoá vào nhà cung cấp</h3><p>Mã nguồn, tài khoản máy chủ và tên miền đứng tên bạn. Sau này muốn thuê đội khác phát triển tiếp cũng dễ dàng.</p></div>
+      <div>
+        <h2 class="big"><span class="o">Từ ý tưởng</span><br>đến vận hành</h2>
+        <ol class="steps">
+          <li class="step"><span class="step-n">1</span><div><h3>Trao đổi ý tưởng</h3><p>Bạn kể vấn đề, chúng tôi đề xuất phạm vi và báo giá trọn gói.</p></div><time>30 phút · miễn phí</time></li>
+          <li class="step"><span class="step-n">2</span><div><h3>Demo đầu tiên</h3><p>Bản chạy được để bạn bấm thử và góp ý trực tiếp.</p></div><time>2–3 ngày</time></li>
+          <li class="step"><span class="step-n">3</span><div><h3>Hoàn thiện</h3><p>Chỉnh theo góp ý, rà soát mã, bảo mật, kiểm thử nhiều thiết bị.</p></div><time>theo gói</time></li>
+          <li class="step"><span class="step-n">4</span><div><h3>Bàn giao & bảo hành</h3><p>Lên tên miền của bạn, bàn giao mã nguồn và tài liệu.</p></div><time>30 ngày hỗ trợ</time></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section class="band" id="hoi-dap">
+  <section id="bang-gia">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Hỏi đáp</span>
-        <h2>Những câu khách hay hỏi</h2>
+      <div class="head-row">
+        <h2 class="big"><span class="o">Giá trọn gói,</span><br>báo trước khi làm</h2>
+        <p>Không tính theo giờ. Bạn biết chính xác mình trả bao nhiêu và nhận được gì.</p>
+      </div>
+      <div class="plans">
+        <article class="folder plan">
+          <h3>Khởi động</h3>
+          <div class="price">từ 4,9tr<small>₫</small></div>
+          <div class="meta">Landing page · 3–7 ngày</div>
+          <ul><li>1–3 trang, giao diện riêng</li><li>Form liên hệ, nút Zalo/Messenger</li><li>SEO cơ bản, tối ưu điện thoại</li><li>2 vòng chỉnh sửa</li></ul>
+          <a class="btn btn-dark" href="#lien-he">Chọn gói này</a>
+        </article>
+        <article class="folder plan hot">
+          <span class="tag">Phổ biến nhất</span>
+          <h3>Tăng trưởng</h3>
+          <div class="price">từ 14,9tr<small>₫</small></div>
+          <div class="meta">Web app / công cụ nội bộ · 2–3 tuần</div>
+          <ul><li>Đăng nhập, cơ sở dữ liệu</li><li>Trang quản trị, phân quyền</li><li>1–2 tích hợp (thanh toán, Zalo, Sheets)</li><li>4 vòng chỉnh sửa</li><li>Bảo hành 30 ngày</li></ul>
+          <a class="btn" href="#lien-he">Chọn gói này</a>
+        </article>
+        <article class="folder plan">
+          <h3>MVP Startup</h3>
+          <div class="price">từ 39tr<small>₫</small></div>
+          <div class="meta">Sản phẩm hoàn chỉnh · 4–6 tuần</div>
+          <ul><li>Thiết kế trải nghiệm người dùng</li><li>Tính năng theo yêu cầu, có thanh toán</li><li>Triển khai máy chủ, tên miền</li><li>Tài liệu kỹ thuật bàn giao</li><li>Bảo hành 60 ngày</li></ul>
+          <a class="btn btn-dark" href="#lien-he">Chọn gói này</a>
+        </article>
+      </div>
+      <p class="note">Giá chưa gồm VAT, tên miền và phí máy chủ hằng năm. Dịch vụ cứu dự án và đào tạo được báo giá riêng sau buổi trao đổi đầu tiên.</p>
+    </div>
+  </section>
+
+  <section id="hoi-dap">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="kicker">Hỏi đáp</span>
+        <h2 class="big" style="margin-top:12px">Những câu <span class="o">khách hay hỏi</span></h2>
+        <p class="muted" style="margin-top:18px; max-width:36ch">Chưa thấy câu bạn cần? Nhắn Zalo cho chúng tôi, trả lời trong giờ làm việc.</p>
       </div>
       <div class="faq">
         <details><summary>Vibe coding là gì? Có đáng tin không?</summary><p>Vibe coding là cách làm phần mềm bằng cách mô tả yêu cầu cho AI và để AI viết phần lớn mã. Tự làm thì dễ phát sinh lỗi và lỗ hổng bảo mật. Ở Zenflorix, kỹ sư luôn kiểm soát kiến trúc, rà soát mã và kiểm thử, nên bạn có được tốc độ của AI mà vẫn yên tâm về chất lượng.</p></details>
@@ -397,48 +378,87 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     </div>
   </section>
 
-  <section class="band contact" id="lien-he">
+  <section id="lien-he">
     <div class="wrap">
-      <div>
-        <span class="eyebrow">Liên hệ</span>
-        <h2 style="margin-top:14px">Kể cho chúng tôi nghe ý tưởng của bạn</h2>
-        <p class="lede" style="margin-top:16px">Phản hồi trong vòng 24 giờ làm việc, kèm đề xuất phạm vi và báo giá sơ bộ.</p>
-        <div class="channels">
-          <div class="channel"><div><span>Zalo / Điện thoại</span><b id="c-phone">09xx xxx xxx</b></div><button class="copy" type="button" data-copy="c-phone">Sao chép</button></div>
-          <div class="channel"><div><span>Email</span><b id="c-mail">hello@zenflorix.vn</b></div><button class="copy" type="button" data-copy="c-mail">Sao chép</button></div>
-          <div class="channel"><div><span>Văn phòng</span><b>Hà Nội · làm việc trực tuyến toàn quốc</b></div></div>
+      <div class="folder contact-box">
+        <div>
+          <h2>Kể cho chúng tôi nghe ý tưởng của bạn</h2>
+          <p class="lead">Phản hồi trong vòng 24 giờ làm việc, kèm đề xuất phạm vi và báo giá sơ bộ.</p>
+          <div class="channels">
+            <div class="channel"><div><span>Zalo / Điện thoại</span><b id="c-phone">09xx xxx xxx</b></div><button class="copy" type="button" data-copy="c-phone">Sao chép</button></div>
+            <div class="channel"><div><span>Email</span><b id="c-mail">hello@zenflorix.vn</b></div><button class="copy" type="button" data-copy="c-mail">Sao chép</button></div>
+            <div class="channel"><div><span>Văn phòng</span><b>Hà Nội · làm việc trực tuyến toàn quốc</b></div></div>
+          </div>
         </div>
+        <form class="brief" id="brief" novalidate>
+          <div class="row2">
+            <div class="field"><label for="f-name">Tên của bạn</label><input id="f-name" name="name" autocomplete="name" placeholder="Nguyễn Văn A" required></div>
+            <div class="field"><label for="f-phone">Số Zalo / điện thoại</label><input id="f-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" required></div>
+          </div>
+          <div class="field"><label for="f-type">Bạn cần làm gì?</label>
+            <select id="f-type" name="type"><option>Website / landing page</option><option>MVP cho startup</option><option>Công cụ nội bộ</option><option>Tự động hoá / chatbot AI</option><option>Cứu & nâng cấp dự án</option><option>Đào tạo vibe coding</option></select>
+          </div>
+          <div class="field"><label for="f-budget">Ngân sách dự kiến</label>
+            <select id="f-budget" name="budget"><option>Dưới 10 triệu</option><option>10–30 triệu</option><option>30–80 triệu</option><option>Trên 80 triệu</option><option>Chưa rõ, cần tư vấn</option></select>
+          </div>
+          <div class="field"><label for="f-idea">Mô tả ngắn ý tưởng</label><textarea id="f-idea" name="idea" placeholder="Ví dụ: Tôi bán mỹ phẩm online, muốn có trang web có giỏ hàng và tự gửi đơn về Zalo."></textarea></div>
+          <button class="btn btn-orange" type="submit">Gửi yêu cầu</button>
+          <p class="form-msg" id="form-msg" hidden></p>
+        </form>
       </div>
-      <form class="brief" id="brief" novalidate>
-        <div class="row2">
-          <div class="field"><label for="f-name">Tên của bạn</label><input id="f-name" name="name" autocomplete="name" placeholder="Nguyễn Văn A" required></div>
-          <div class="field"><label for="f-phone">Số Zalo / điện thoại</label><input id="f-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" required></div>
-        </div>
-        <div class="field"><label for="f-type">Bạn cần làm gì?</label>
-          <select id="f-type" name="type">
-            <option>Website / landing page</option><option>MVP cho startup</option><option>Công cụ nội bộ</option>
-            <option>Tự động hoá / chatbot AI</option><option>Cứu & nâng cấp dự án</option><option>Đào tạo vibe coding</option>
-          </select>
-        </div>
-        <div class="field"><label for="f-budget">Ngân sách dự kiến</label>
-          <select id="f-budget" name="budget"><option>Dưới 10 triệu</option><option>10–30 triệu</option><option>30–80 triệu</option><option>Trên 80 triệu</option><option>Chưa rõ, cần tư vấn</option></select>
-        </div>
-        <div class="field"><label for="f-idea">Mô tả ngắn ý tưởng</label><textarea id="f-idea" name="idea" placeholder="Ví dụ: Tôi bán mỹ phẩm online, muốn có trang web có giỏ hàng và tự gửi đơn về Zalo."></textarea></div>
-        <button class="btn btn-primary" type="submit">Gửi yêu cầu</button>
-        <p class="form-msg" id="form-msg" hidden></p>
-      </form>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span><span class="wordmark" style="font-size:1.1rem">Zenflorix<span class="dot">.</span></span> &nbsp;© 2026 Zenflorix · Dịch vụ Vibe Code</span>
-    <span>Website · Ứng dụng · Công cụ nội bộ · Tự động hoá</span>
+    <span class="logo">Zenflorix<span class="dot">.</span></span>
+    <span>© 2026 Zenflorix · Website · Ứng dụng · Công cụ nội bộ · Tự động hoá</span>
   </div>
 </footer>
 
 <script>
+// Hình xoắn 3D vẽ bằng canvas (thay cho ảnh render)
+function drawSwirl(cv) {
+  var box = cv.getBoundingClientRect();
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = Math.max(1, Math.round(box.width)), h = Math.max(1, Math.round(box.height));
+  cv.width = w * dpr; cv.height = h * dpr;
+  var c = cv.getContext('2d');
+  c.setTransform(dpr, 0, 0, dpr, 0, 0);
+  var thumb = cv.dataset.variant === 'thumb';
+  var bg = c.createLinearGradient(0, 0, w, h);
+  bg.addColorStop(0, '#FFB37A'); bg.addColorStop(0.55, '#FF7A33'); bg.addColorStop(1, '#F25A1C');
+  c.fillStyle = bg; c.fillRect(0, 0, w, h);
+  var R = Math.max(w, h) * (thumb ? 1.05 : 0.78);
+  var cx0 = thumb ? w * 0.95 : w * 0.66, cy0 = thumb ? h * 0.15 : h * 0.5;
+  var N = 16;
+  for (var k = 0; k < N; k++) {
+    var t = k / N;
+    var r = R * (1 - t * 0.9);
+    var cx = cx0 - t * w * 0.10, cy = cy0 + t * h * 0.06;
+    var g = c.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
+    g.addColorStop(0, '#8E1A08'); g.addColorStop(0.35, '#D93A12'); g.addColorStop(0.6, '#FF8A45'); g.addColorStop(0.82, '#FFE3C9'); g.addColorStop(1, '#C8401A');
+    c.save();
+    c.shadowColor = 'rgba(70, 10, 0, 0.45)'; c.shadowBlur = r * 0.08; c.shadowOffsetY = r * 0.02;
+    c.strokeStyle = g; c.lineWidth = Math.max(3, r * 0.16); c.lineCap = 'round';
+    c.beginPath();
+    var a0 = -2.4 + k * 0.42;
+    c.ellipse(cx, cy, r, r * 0.9, -0.5 + t * 0.6, a0, a0 + Math.PI * 1.55);
+    c.stroke();
+    c.restore();
+  }
+  if (!thumb) {
+    var sx = cx0 - w * 0.1, sy = cy0 + h * 0.06, sr = Math.min(w, h) * 0.035;
+    var sg = c.createRadialGradient(sx - sr * 0.4, sy - sr * 0.4, sr * 0.1, sx, sy, sr);
+    sg.addColorStop(0, '#FFF3E8'); sg.addColorStop(0.6, '#FFB27E'); sg.addColorStop(1, '#D24A1A');
+    c.fillStyle = sg; c.beginPath(); c.arc(sx, sy, sr, 0, Math.PI * 2); c.fill();
+  }
+}
+function drawAll() { document.querySelectorAll('canvas.swirl').forEach(drawSwirl); }
+drawAll();
+var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(drawAll, 120); });
+
 document.querySelectorAll('.copy').forEach(function (btn) {
   btn.addEventListener('click', function () {
     var el = document.getElementById(btn.dataset.copy);
@@ -454,9 +474,9 @@ document.getElementById('brief').addEventListener('submit', function (e) {
   var name = document.getElementById('f-name').value.trim();
   var phone = document.getElementById('f-phone').value.trim();
   msg.hidden = false;
-  if (!name || !phone) { msg.style.color = 'var(--spark)'; msg.textContent = 'Vui lòng điền tên và số Zalo để chúng tôi liên hệ lại.'; return; }
+  if (!name || !phone) { msg.style.color = 'var(--orange-deep)'; msg.textContent = 'Vui lòng điền tên và số Zalo để chúng tôi liên hệ lại.'; return; }
   msg.style.color = '';
-  msg.textContent = 'Cảm ơn ' + name + '! Đây là bản xem trước nên form chưa gửi đi đâu. Bản chính thức sẽ chuyển yêu cầu về Zalo/email của Zenflorix.';
+  msg.textContent = 'Cảm ơn ' + name + '! Form này chưa được kết nối nên yêu cầu chưa gửi đi. Bạn vui lòng nhắn Zalo hoặc email ở bên cạnh.';
 });
 </script>
 
