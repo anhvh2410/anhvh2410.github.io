@@ -152,6 +152,7 @@ nav.links a:hover { color: var(--ink); }
 
 /* Why */
 .why { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.why > * { min-width: 0; }
 .compare { border: 1px solid var(--line); border-radius: 14px; overflow-x: auto; background: var(--surface); }
 .compare table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 420px; }
 .compare th, .compare td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); }
@@ -381,9 +382,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <div class="faq">
         <details><summary>Vibe coding là gì? Có đáng tin không?</summary><p>Vibe coding là cách làm phần mềm bằng cách mô tả yêu cầu cho AI và để AI viết phần lớn mã. Tự làm thì dễ phát sinh lỗi và lỗ hổng bảo mật. Ở Zenflorix, kỹ sư luôn kiểm soát kiến trúc, rà soát mã và kiểm thử, nên bạn có được tốc độ của AI mà vẫn yên tâm về chất lượng.</p></details>
+        <details><summary>Khác gì so với tự dùng ChatGPT, Cursor hay Lovable?</summary><p>Các công cụ AI giúp ra bản nháp rất nhanh, nhưng đưa lên chạy thật là chuyện khác: bảo mật, dữ liệu khách hàng, máy chủ, tên miền và sửa lỗi khi có sự cố. Chúng tôi dùng chính những công cụ đó để làm nhanh, và có kỹ sư chịu trách nhiệm phần còn lại.</p></details>
         <details><summary>Tôi không biết gì về kỹ thuật thì có làm được không?</summary><p>Được. Bạn chỉ cần kể vấn đề của mình bằng lời thường. Chúng tôi lo phần kỹ thuật và giải thích mọi thứ bằng ngôn ngữ dễ hiểu.</p></details>
-        <details><summary>Sau khi bàn giao, ai sửa khi có lỗi?</summary><p>Trong thời gian bảo hành, chúng tôi sửa lỗi miễn phí. Sau đó bạn có thể đăng ký gói bảo trì theo tháng hoặc thuê theo từng yêu cầu.</p></details>
+        <details><summary>Tôi cần chuẩn bị những gì?</summary><p>Chỉ cần mô tả vấn đề và vài ví dụ bạn thích. Nếu có thì gửi thêm logo, hình ảnh, nội dung hoặc file Excel đang dùng. Thiếu phần nào chúng tôi sẽ gợi ý.</p></details>
+        <details><summary>Bao lâu thì xong?</summary><p>Landing page 3–7 ngày, web app hoặc công cụ nội bộ 2–3 tuần, MVP hoàn chỉnh 4–6 tuần. Gói nào bạn cũng có bản demo bấm thử được sau 2–3 ngày.</p></details>
+        <details><summary>Giá đã gồm những gì? Có phát sinh chi phí không?</summary><p>Giá trọn gói gồm thiết kế, lập trình, kiểm thử, số vòng chỉnh sửa của gói và bảo hành; chưa gồm VAT, tên miền và phí máy chủ hằng năm. Chi phí chỉ phát sinh khi bạn muốn thêm tính năng ngoài phạm vi đã chốt, và luôn được báo giá trước để bạn đồng ý.</p></details>
         <details><summary>Thanh toán như thế nào?</summary><p>Thông thường chia hai đợt: 50% khi bắt đầu và 50% khi bàn giao. Dự án lớn có thể chia theo từng giai đoạn.</p></details>
+        <details><summary>Tôi muốn thêm tính năng giữa chừng được không?</summary><p>Được. Chúng tôi ước lượng thời gian và chi phí cho phần thêm, bạn đồng ý thì mới làm. Cũng có thể để sang giai đoạn sau để không ảnh hưởng ngày ra mắt.</p></details>
+        <details><summary>Ai sở hữu mã nguồn? Sau này tôi thuê đội khác được không?</summary><p>Bạn sở hữu 100% mã nguồn. Mã nguồn, tài khoản máy chủ và tên miền đều đứng tên bạn. Chúng tôi dùng công nghệ phổ biến và bàn giao tài liệu hướng dẫn, nên đội kỹ thuật khác có thể tiếp nhận dễ dàng.</p></details>
+        <details><summary>Dữ liệu của tôi và khách hàng của tôi có an toàn không?</summary><p>Kỹ sư rà soát bảo mật trước khi bàn giao: đăng nhập, phân quyền, mã hoá kết nối, không để lộ mật khẩu hay khoá truy cập trong mã. Dữ liệu nằm trên máy chủ đứng tên bạn.</p></details>
+        <details><summary>Sau khi bàn giao, ai sửa khi có lỗi?</summary><p>Trong thời gian bảo hành, chúng tôi sửa lỗi miễn phí. Sau đó bạn có thể đăng ký gói bảo trì theo tháng hoặc thuê theo từng yêu cầu.</p></details>
         <details><summary>Dự án tôi tự làm bằng AI đang bị lỗi, Zenflorix có nhận sửa không?</summary><p>Có. Gửi cho chúng tôi mã nguồn hoặc đường dẫn, chúng tôi rà soát miễn phí và báo lại cần sửa những gì, chi phí bao nhiêu.</p></details>
       </div>
     </div>
