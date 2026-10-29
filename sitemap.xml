@@ -3,7 +3,31 @@
   <url>
     <loc>https://io.zenflorix.com/</loc>
     <lastmod>2026-10-29</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://io.zenflorix.com/dich-vu/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://io.zenflorix.com/quy-trinh/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://io.zenflorix.com/bang-gia/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://io.zenflorix.com/hoi-dap/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://io.zenflorix.com/lien-he/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
