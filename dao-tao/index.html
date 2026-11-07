@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="canonical" href="https://io.zenflorix.com/dao-tao/">
+<title>Đào tạo 3 dịch vụ Zenflorix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: dải điều hướng cố định, mỗi mục là một băng nội dung; sơ đồ ba dịch vụ làm trọng tâm */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --fg:#14232b; --muted:#5a6b74; --line:#d9e1e5;
+  --dv1:#0f766e; --dv1-soft:#d9f0ed;
+  --dv2:#b45309; --dv2-soft:#fbe9d2;
+  --dv3:#1d4ed8; --dv3-soft:#dde7fb;
+  --ok:#15803d; --ok-soft:#dcf3e3; --no:#b42318; --no-soft:#fde4e1;
+  --ink:#10242c; --ink-fg:#eaf3f5;
+  --f-body:'Be Vietnam Pro',system-ui,sans-serif; --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e171b; --surface:#16232a; --fg:#e6eff2; --muted:#93a6af; --line:#2a3b44;
+  --dv1:#5fd0c3; --dv1-soft:#12332f;
+  --dv2:#f0b265; --dv2-soft:#3a2a12;
+  --dv3:#8fb0ff; --dv3-soft:#1a2748;
+  --ok:#6fd48e; --ok-soft:#14301f; --no:#ff9b8f; --no-soft:#3b1a17;
+  --ink:#08110d; --ink-fg:#eaf3f5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e171b; --surface:#16232a; --fg:#e6eff2; --muted:#93a6af; --line:#2a3b44;
+  --dv1:#5fd0c3; --dv1-soft:#12332f;
+  --dv2:#f0b265; --dv2-soft:#3a2a12;
+  --dv3:#8fb0ff; --dv3-soft:#1a2748;
+  --ok:#6fd48e; --ok-soft:#14301f; --no:#ff9b8f; --no-soft:#3b1a17;
+  --ink:#08110d; --ink-fg:#eaf3f5; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+h2{font-size:1.55rem;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:.4em 0}
+.lbl{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  display:flex;gap:4px;overflow-x:auto;padding:8px 0;margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-left:max(16px,env(safe-area-inset-left,0px))}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:600;font-size:.85rem;padding:6px 12px;border-radius:999px}
+nav a:hover,nav a:focus-visible{background:var(--surface);color:var(--fg);outline:2px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.hero{background:var(--ink);color:var(--ink-fg);margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:40px max(16px,env(safe-area-inset-left,0px)) 36px}
+.hero .wrap{display:grid;gap:14px}
+.hero h1{font-size:clamp(1.8rem,5vw,2.9rem);font-weight:800;letter-spacing:-.02em}
+.hero p{max-width:60ch;color:#b8cdd4;margin:0}
+.badge{display:inline-block;font-family:var(--f-mono);font-size:.72rem;padding:3px 9px;border-radius:4px;background:#1d3a44;color:#8fd6e0;letter-spacing:.05em;width:max-content}
+section{padding:44px 0 8px;scroll-margin-top:52px}
+.sub{color:var(--muted);max-width:68ch;margin:.5em 0 20px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;counter-reset:r}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.9rem;min-width:0}
+.rule b{display:block;font-size:.78rem;font-family:var(--f-mono);color:var(--muted);margin-bottom:2px}
+/* diagram */
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto}
+.diagram svg{display:block;min-width:640px;width:100%;height:auto}
+.diagram text{font-family:var(--f-body);fill:var(--fg)}
+.diagram .m{fill:var(--muted)}
+/* service cards */
+.svc{border-top:5px solid var(--c);padding-top:16px}
+.svc h3{color:var(--c)}
+.tag{display:inline-block;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--cs);color:var(--c)}
+.dv1{--c:var(--dv1);--cs:var(--dv1-soft)} .dv2{--c:var(--dv2);--cs:var(--dv2-soft)} .dv3{--c:var(--dv3);--cs:var(--dv3-soft)}
+ul.t{margin:.5em 0;padding-left:1.1em} ul.t li{margin:.25em 0}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.88rem;margin-top:10px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;min-width:0}
+.pend{font-family:var(--f-mono);font-size:.7rem;background:var(--dv2-soft);color:var(--dv2);padding:1px 6px;border-radius:3px;white-space:nowrap}
+/* tabs for prototypes */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tabs button{font:inherit;font-weight:600;font-size:.85rem;padding:7px 14px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--dv1);color:var(--bg);border-color:var(--dv1)}
+.tabs button:focus-visible{outline:2px solid var(--dv1);outline-offset:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.has,.hasnt{border-radius:8px;padding:14px;font-size:.88rem;min-width:0}
+.has{background:var(--ok-soft)} .hasnt{background:var(--no-soft)}
+.has h4,.hasnt h4{margin:0 0 4px;font-size:.8rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em}
+.has h4{color:var(--ok)} .hasnt h4{color:var(--no)}
+/* price bar */
+.bar{display:flex;height:46px;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:12px 0 6px}
+.bar span{display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:700;color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+.b1{background:#0f766e}.b2{background:#4b6a76}.b3{background:#b45309}.b4{background:#1d4ed8}
+.leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--muted)}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.74rem;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--f-mono);white-space:nowrap}
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.ph{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.84rem;position:relative;min-width:0}
+.ph b{display:block;font-size:.9rem}
+.ph small{display:block;color:var(--muted);margin-top:2px}
+.ph.sale{border-color:var(--dv2);background:var(--dv2-soft)}
+.ph .who{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:6px;display:block}
+.ph.sale .who{color:var(--dv2);font-weight:700}
+.key{display:flex;gap:8px;align-items:center;font-size:.82rem;color:var(--muted);margin-top:8px}
+.key i{width:14px;height:14px;border-radius:3px;background:var(--dv2-soft);border:1px solid var(--dv2);display:inline-block}
+/* say / not say */
+.say{display:grid;gap:10px}
+.line{display:grid;grid-template-columns:minmax(120px,.7fr) 1.6fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.line q{quotes:none;font-weight:700;font-size:.9rem}
+.line p{margin:0;font-size:.9rem}
+@media(max-width:560px){.line{grid-template-columns:1fr}}
+.donot{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
+.dn{background:var(--no-soft);border-radius:8px;padding:10px 14px;font-size:.88rem}
+.dn b{color:var(--no)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px}
+summary{cursor:pointer;font-weight:600}
+summary:focus-visible{outline:2px solid var(--dv3);outline-offset:3px}
+details p{color:var(--muted);margin:.5em 0 .2em;font-size:.9rem}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.open ol{margin:0;padding-left:1.3em} .open li{margin:.35em 0}
+footer{margin:48px 0 40px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:14px}
+code{font-family:var(--f-mono);font-size:.82em;background:var(--bg);padding:1px 5px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+
+<div class="hero"><div class="wrap">
+  <span class="badge">NỘI BỘ · KHÔNG GỬI KHÁCH · BẢN 1.0 · 07/11/2026</span>
+  <h1>Đào tạo sản phẩm và dịch vụ Zenflorix</h1>
+  <p>Dành cho nhân viên sale và tư vấn viên. Nắm ba dịch vụ cốt lõi, cách tính giá nội bộ, cách nói với khách và những điều tuyệt đối không hứa.</p>
+</div></div>
+
+<div class="wrap">
+<nav aria-label="Mục lục">
+  <a href="#tong-quan">Tổng quan</a><a href="#dv1">Dịch vụ 1</a><a href="#gia">Cách tính giá</a><a href="#dv2">Dịch vụ 2</a><a href="#dv3">Dịch vụ 3</a><a href="#cua-vao">Cửa vào tư vấn</a><a href="#chon">Chọn dịch vụ</a><a href="#ban">Kịch bản</a><a href="#cam">Không được hứa</a><a href="#kiem-tra">Kiểm tra</a>
+</nav>
+
+<section id="tong-quan">
+  <h2>Tám điều phải nhớ</h2>
+  <p class="sub">Đọc kỹ phần này trước khi gặp khách đầu tiên.</p>
+  <div class="rules">
+    <div class="rule"><b>1</b>Bán <strong>3 dịch vụ</strong>, không còn "4 dòng A–D" hay "4 Plan".</div>
+    <div class="rule"><b>2</b><strong>Tư vấn quy trình</strong> là cửa vào chung của cả ba, không phải dịch vụ thứ tư.</div>
+    <div class="rule"><b>3</b><strong>Website không ghi giá.</strong> Khách liên hệ để nhận báo giá. Không gửi bảng giá nội bộ.</div>
+    <div class="rule"><b>4</b>Mỗi khách một <strong>máy chủ (VPS) riêng</strong>, dữ liệu không lẫn.</div>
+    <div class="rule"><b>5</b>Giá dịch vụ 1 là <strong>giá tham chiếu do AI gợi ý, người duyệt</strong>. Sale không báo giá cuối.</div>
+    <div class="rule"><b>6</b><strong>Bảo hành 30 ngày</strong> chỉ khi bàn giao mã nguồn để khách tự vận hành.</div>
+    <div class="rule"><b>7</b>Tư vấn và đào tạo <strong>20 USD/giờ</strong>, block 10 giờ = 200 USD.</div>
+    <div class="rule"><b>8</b>Không hứa tăng doanh thu, "tự động đúng luật", hay mốc thời gian khi khách chưa đủ dữ liệu.</div>
+  </div>
+
+  <h2 style="margin-top:36px">Ba dịch vụ nối với nhau</h2>
+  <p class="sub">Khách thường đi theo một đường: tư vấn, hệ thống quản trị, đào tạo, rồi thêm trợ lý AI. Mỗi bước sau là cơ hội bán tiếp, không cần khảo sát lại từ đầu.</p>
+  <div class="diagram">
+    <svg viewBox="0 0 760 330" role="img" aria-label="Sơ đồ: cửa vào tư vấn dẫn tới dịch vụ 1 và 2, cả hai nối với dịch vụ 3, rồi vận hành hằng tháng hoặc tự vận hành">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="m" style="fill:var(--muted)"/></marker></defs>
+      <rect x="180" y="8" width="400" height="52" rx="10" style="fill:var(--ink)"/>
+      <text x="380" y="30" text-anchor="middle" style="fill:#eaf3f5;font-weight:700;font-size:15px">Cửa vào: Tư vấn block 10 giờ</text>
+      <text x="380" y="49" text-anchor="middle" style="fill:#9fc3cc;font-size:12px">hoặc dashboard nhỏ 2–4 triệu</text>
+      <path d="M300 60 L190 118" stroke-width="2" fill="none" marker-end="url(#ar)" style="stroke:var(--muted)"/>
+      <path d="M460 60 L570 118" stroke-width="2" fill="none" marker-end="url(#ar)" style="stroke:var(--muted)"/>
+      <rect x="20" y="120" width="330" height="76" rx="10" style="fill:var(--dv1-soft);stroke:var(--dv1)" stroke-width="2"/>
+      <text x="185" y="148" text-anchor="middle" style="fill:var(--dv1);font-weight:800;font-size:15px">DV1 · Giải pháp quản trị</text>
+      <text x="185" y="170" text-anchor="middle" style="font-size:12.5px">CRM · HRM · Kho · POS từ hệ thống mẫu</text>
+      <text x="185" y="187" text-anchor="middle" class="m" style="font-size:12px">chạy trên máy chủ riêng</text>
+      <rect x="410" y="120" width="330" height="76" rx="10" style="fill:var(--dv2-soft);stroke:var(--dv2)" stroke-width="2"/>
+      <text x="575" y="148" text-anchor="middle" style="fill:var(--dv2);font-weight:800;font-size:15px">DV2 · Tool và agent AI</text>
+      <text x="575" y="170" text-anchor="middle" style="font-size:12.5px">Chatbot · marketing · livestream AI</text>
+      <text x="575" y="187" text-anchor="middle" class="m" style="font-size:12px">gói sử dụng + tư vấn tích hợp</text>
+      <path d="M350 158 L408 158" stroke-width="2" fill="none" marker-end="url(#ar)" style="stroke:var(--muted)"/>
+      <text x="379" y="150" text-anchor="middle" class="m" style="font-size:10.5px">dữ liệu</text>
+      <path d="M185 196 L300 244" stroke-width="2" fill="none" marker-end="url(#ar)" style="stroke:var(--muted)"/>
+      <path d="M575 196 L460 244" stroke-width="2" fill="none" marker-end="url(#ar)" style="stroke:var(--muted)"/>
+      <rect x="180" y="246" width="400" height="60" rx="10" style="fill:var(--dv3-soft);stroke:var(--dv3)" stroke-width="2"/>
+      <text x="380" y="272" text-anchor="middle" style="fill:var(--dv3);font-weight:800;font-size:15px">DV3 · Đào tạo và chuyển giao</text>
+      <text x="380" y="292" text-anchor="middle" class="m" style="font-size:12px">rồi vận hành hằng tháng hoặc khách tự vận hành</text>
+    </svg>
+  </div>
+
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card svc dv1"><span class="tag">DV1</span><h3>Giải pháp quản trị</h3>
+      <dl class="kv"><dt>Khách mua</dt><dd>Hệ thống chạy theo quy trình của họ</dd><dt>Tính tiền</dt><dd>Một lần theo dự án + vận hành tháng</dd><dt>Khách</dt><dd>5–500 nhân sự: dùng Excel, Zalo, giấy, hoặc SaaS không đáp ứng nhu cầu</dd></dl></div>
+    <div class="card svc dv2"><span class="tag">DV2</span><h3>Tool và agent AI</h3>
+      <dl class="kv"><dt>Khách mua</dt><dd>Trợ lý AI chạy sẵn, gắn vào kênh đang dùng</dd><dt>Tính tiền</dt><dd>Cài đặt + gói tháng + tư vấn theo giờ</dd><dt>Khách</dt><dd>Muốn tối ưu marketing, bán hàng, hoặc việc nội bộ như tài chính kế toán, dự toán</dd></dl></div>
+    <div class="card svc dv3"><span class="tag">DV3</span><h3>Đào tạo và chuyển giao</h3>
+      <dl class="kv"><dt>Khách mua</dt><dd>Khả năng tự dùng, tự quản, tự chỉnh</dd><dt>Tính tiền</dt><dd>Block giờ hoặc gói cố định</dd><dt>Khách</dt><dd>Đã mua DV1/DV2, hoặc có đội kỹ thuật</dd></dl></div>
+  </div>
+
+  <div class="tablewrap" style="margin-top:18px"><table>
+    <thead><tr><th>Cách cũ</th><th>Bây giờ</th></tr></thead>
+    <tbody>
+      <tr><td>4 dòng: A dashboard, B ứng dụng nhỏ, C CRM/HRM/ERP, D AI</td><td>A nhỏ làm cửa vào; B và C gộp vào DV1; D thành DV2</td></tr>
+      <tr><td>4 Plan, bảng giá công khai</td><td>Bỏ hẳn 4 Plan; không công khai giá</td></tr>
+      <tr><td>Đào tạo, bàn giao nằm chìm trong giá</td><td>DV3 có phạm vi và giá riêng</td></tr>
+      <tr><td>Tư vấn block 6–8 triệu</td><td>20 USD/giờ, block 10 giờ = 200 USD</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="dv1">
+  <h2>Dịch vụ 1: Giải pháp quản trị theo quy trình</h2>
+  <p class="sub">Zenflorix không viết từ đầu. Mình lấy một <strong>nguyên mẫu</strong> có sẵn, đối chiếu với quy trình thật của khách, rồi Claude Code điều chỉnh. Nhờ vậy rẻ hơn và nhanh hơn.</p>
+
+  <div class="card" style="margin-bottom:22px"><h3>Khách phù hợp: từ 5 đến 500 nhân sự</h3>
+    <ul class="t"><li>Đang dùng Excel, Zalo, giấy và muốn có hệ thống riêng.</li><li><strong>Đang dùng phần mềm SaaS nhưng không đáp ứng được nhu cầu</strong>: quy trình đặc thù SaaS không chỉnh được, thiếu tính năng, phí theo người dùng ngày càng đắt, dữ liệu nằm ở nhà cung cấp. Hỏi: "SaaS đang thiếu hoặc vướng ở điểm nào?" rồi bổ sung đúng phần thiếu, không bắt khách bỏ hết.</li><li>Muốn dữ liệu để ở máy chủ riêng. Ngành ưu tiên: nội thất, thương mại, dịch vụ.</li></ul>
+    <p style="color:var(--muted)">Khách nhiều chi nhánh, nhiều phòng ban hoặc gần 500 nhân sự thường có phần NẶNG: không nén được lịch tư vấn một tuần, không báo giá nhanh.</p></div>
+
+  <h3>Cách giao hàng</h3>
+  <div class="phases" style="margin:10px 0 24px">
+    <div class="ph"><b>1. Khảo sát</b><small>Vẽ quy trình hiện tại của khách</small><span class="who">Người dẫn, AI soạn nháp</span></div>
+    <div class="ph"><b>2. Đối chiếu</b><small>Bảng "giữ nguyên / chỉnh / thêm / bỏ" so với nguyên mẫu</small><span class="who">Người duyệt</span></div>
+    <div class="ph"><b>3. Điều chỉnh</b><small>Nhãn, trường, bước duyệt, phân quyền, báo cáo</small><span class="who">Claude Code, có người rà</span></div>
+    <div class="ph"><b>4. Chạy thật</b><small>Chạy thử, kiểm tra, VPS riêng, nhập dữ liệu, bàn giao</small><span class="who">Quy trình 7 bước</span></div>
+  </div>
+
+  <h3>Các nguyên mẫu có sẵn: ví dụ một số nguyên mẫu phổ thông</h3>
+  <p class="sub" style="margin-bottom:10px">Nguyên mẫu là bộ tính năng cơ bản, định nghĩa độc lập, <strong>không phải dự án đã làm cho khách nào</strong>. Chọn tab để xem có gì và không có gì.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="proto" aria-live="polite"></div>
+  <p class="sub" style="margin-top:12px">Luồng duyệt chưa có nguyên mẫu: khách cần thì trả lời "cần khảo sát", không báo giá nhanh. Với khách, chỉ nói chung là "các nguyên mẫu có sẵn" và kể ví dụ phổ thông (CRM, HRM, kho, POS); không gọi tên hay mô tả cụ thể từng nguyên mẫu khi chưa cần.</p>
+</section>
+
+<section id="gia">
+  <h2>Cách tính giá dịch vụ 1 (nội bộ)</h2>
+  <p class="sub">Giá triển khai = nền nguyên mẫu + cấu hình + tính năng thêm + tích hợp AI. Chưa gồm VAT, VPS, tên miền, token AI. Bảng này chỉ để hiểu cách cộng, không đọc số cho khách.</p>
+
+  <div class="grid g2">
+    <div class="tablewrap"><table>
+      <thead><tr><th>Khoản</th><th>Mức</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Nền nguyên mẫu</strong><br><span style="color:var(--muted)">gồm mọi tính năng trong bảng</span></td><td class="n">từ 10 triệu / module</td></tr>
+        <tr><td><strong>Cấu hình</strong><br><span style="color:var(--muted)">đổi trong khung có sẵn</span></td><td class="n">0,5–5 triệu / mục</td></tr>
+        <tr><td><strong>Tính năng thêm</strong><br><span style="color:var(--muted)">AI chấm độ phức tạp 1–5</span></td><td class="n">1–5 triệu</td></tr>
+        <tr><td><strong>Tích hợp AI</strong><br><span style="color:var(--muted)">chỉ khi tool đã có sẵn</span></td><td class="n">3–20 triệu, chưa gồm token</td></tr>
+        <tr><td><strong>Phần NẶNG</strong></td><td>Không báo số. Nghiên cứu chuyên sâu, báo sau khảo sát</td></tr>
+      </tbody></table></div>
+    <div class="card">
+      <h3>Ví dụ: CRM thêm bốn khoản</h3>
+      <div class="bar" role="img" aria-label="10 triệu nền, 0,5 cấu hình, 5 tính năng thêm, 6 tích hợp AI">
+        <span class="b1" style="flex:10">Nền 10</span><span class="b2" style="flex:.5"></span><span class="b3" style="flex:5">Thêm 5</span><span class="b4" style="flex:6">AI 6</span>
+      </div>
+      <div class="leg"><span><i class="b1"></i>Nền 10</span><span><i class="b2"></i>5 trường mới 0,5</span><span><i class="b3"></i>Duyệt giảm giá 3 + báo cáo riêng 2</span><span><i class="b4"></i>Chatbot đọc CRM (A2) 6</span></div>
+      <p style="margin-top:12px"><strong>Tổng tham chiếu: 21,5 triệu</strong>, chưa gồm token. Vận hành khoảng 1,5% mỗi tháng, tối thiểu 300 nghìn.</p>
+    </div>
+  </div>
+
+  <div class="tablewrap" style="margin-top:14px"><table>
+    <thead><tr><th>Yêu cầu</th><th>Giá tham chiếu</th></tr></thead>
+    <tbody>
+      <tr><td>CRM đúng nguyên mẫu, đổi logo và nhãn</td><td class="n">10 triệu · vận hành 300 nghìn/tháng</td></tr>
+      <tr><td>CRM + 5 trường mới + đổi tên bước pipeline</td><td class="n">11,5 triệu</td></tr>
+      <tr><td>CRM + duyệt giảm giá + báo cáo riêng</td><td class="n">15 triệu</td></tr>
+      <tr><td>CRM + chatbot hỏi đáp từ dữ liệu CRM</td><td class="n">16 triệu, chưa gồm token</td></tr>
+      <tr><td>HRM có tính lương theo luật</td><td>Có phần NẶNG: không báo số</td></tr>
+    </tbody></table></div>
+
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h3>Vận hành</h3><p>Khoảng 1,5% giá triển khai mỗi tháng, tối thiểu 300 nghìn. <span class="lbl">đã chốt</span></p></div>
+    <div class="card"><h3>Chuyển giao</h3><p>Phí riêng 20% giá triển khai, tối thiểu 10 triệu; không còn phí vận hành tháng; bảo hành 30 ngày. Đào tạo chuyển giao tính riêng theo giờ. <span class="lbl">đã chốt 07/11</span></p></div>
+    <div class="card"><h3>Nhiều module</h3><p>Không giảm từ module thứ hai. <span class="lbl">đã chốt 07/11</span></p></div>
+  </div>
+
+  <div class="card" style="margin-top:14px"><h3>Phần NẶNG là gì</h3>
+    <p>Tích hợp ngoài (ngân hàng, sàn, Zalo OA hai chiều), lương, bảo hiểm, thuế, hóa đơn điện tử, nhiều chi nhánh, nhập dữ liệu cũ khó, máy vân tay, hoặc tính năng AI chưa có sẵn trong Marketing Agent. <strong>Sale không báo số cho các mục này.</strong></p>
+    <p style="color:var(--muted)">Vai trò của AI gợi ý giá: chỉ phân nhóm yêu cầu (Giữ, Cấu hình, Thêm, AI, Nặng), chấm điểm và giải thích. Phép cộng do code làm, kết quả chỉ nhân viên thấy và người duyệt rồi mới gửi khách.</p></div>
+</section>
+
+<section id="dv2">
+  <h2>Dịch vụ 2: Tool và agent AI tích hợp</h2>
+  <p class="sub">Công cụ AI chạy sẵn cho một việc cụ thể. Điểm bán mạnh nhất: chatbot đọc dữ liệu từ CRM của DV1.</p>
+  <div class="grid g3">
+    <div class="card svc dv2"><h3>Chatbot chăm sóc khách</h3><p>Trả lời hỏi đáp trên website, Zalo, Facebook; luôn có đường chuyển cho người thật.</p></div>
+    <div class="card svc dv2"><h3>Agent marketing</h3><p>Tạo và đăng nội dung theo kế hoạch.</p></div>
+    <div class="card svc dv2"><h3>Trợ lý livestream AI</h3><p>Hỗ trợ kịch bản, trả lời bình luận.</p></div>
+  </div>
+
+  <div class="card" style="margin-top:16px"><h3>Khách phù hợp</h3>
+    <p>Doanh nghiệp muốn tối ưu và triển khai các hoạt động:</p>
+    <ul class="t"><li><strong>Marketing, bán hàng, tiếp thị:</strong> hỏi đáp khách, đăng bài, livestream, chăm sóc khách.</li><li><strong>Việc nội bộ:</strong> tài chính kế toán, dự toán và các tác vụ lặp lại (tổng hợp, đối chiếu, soạn báo cáo, bóc tách dữ liệu).</li></ul>
+    <p style="color:var(--muted)">Với việc nội bộ, AI chỉ hỗ trợ soạn thảo, đối chiếu, tổng hợp. Không hứa "đúng luật", không thay kế toán chịu trách nhiệm số liệu; người của khách vẫn kiểm tra. Tác vụ tài chính kế toán, dự toán chưa có sẵn trong Marketing Agent thì tính là phần NẶNG: sale không báo số.</p></div>
+
+  <h3 style="margin-top:24px">Bốn bước giao hàng</h3>
+  <div class="phases" style="margin:10px 0 24px">
+    <div class="ph"><b>1. Tư vấn tích hợp</b><small>Kênh, dữ liệu, nội dung, giới hạn</small></div>
+    <div class="ph"><b>2. Cài đặt</b><small>Từ mẫu có sẵn, huấn luyện trên tài liệu của khách</small></div>
+    <div class="ph"><b>3. Chạy thử</b><small>1–2 tuần có người giám sát, chỉnh kịch bản</small></div>
+    <div class="ph"><b>4. Vận hành</b><small>Theo gói, báo cáo tháng: hội thoại, chi phí API, lỗi</small></div>
+  </div>
+
+  <h3>Ba khoản, tách rõ để khách hiểu mình trả gì</h3>
+  <div class="grid g3" style="margin-top:10px">
+    <div class="card"><span class="lbl">a</span><h3>Cài đặt một lần</h3><p>Theo thang tích hợp AI 3–20 triệu; hạ về phần thấp khi bán theo gói sử dụng. <span class="pend">đề xuất</span></p></div>
+    <div class="card"><span class="lbl">b</span><h3>Gói sử dụng tháng hoặc năm</h3><p>Có hạn mức (hội thoại, bài, giờ livestream). Vượt thì mua thêm gói, không tính bất ngờ. Dùng thử theo chính sách từng thời điểm; sale không tự hứa dùng thử.</p></div>
+    <div class="card"><span class="lbl">c</span><h3>Tư vấn tích hợp</h3><p>20 USD/giờ. Token và API AI tính riêng theo thực tế hoặc gộp có hạn mức.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px;border-color:var(--dv2)"><strong>Tool và agent trong gói lấy theo danh sách Marketing Agent</strong>: chỉ bán những gì đang có trong đó. Chưa có bảng giá gói cho khoản (b), cần số chi phí thật trước khi chốt. Sale không báo giá gói sử dụng: chuyển cho người phụ trách.</div>
+</section>
+
+<section id="dv3">
+  <h2>Dịch vụ 3: Đào tạo và chuyển giao</h2>
+  <p class="sub">Làm cho khách tự dùng được và tự giữ được hệ thống. Bán cùng DV1/DV2 hoặc bán riêng.</p>
+  <div class="grid g2">
+    <div class="card svc dv3"><h3>Đào tạo người dùng</h3><p>Theo vai trò, dữ liệu thật, tài liệu ngắn, cử người dùng chủ chốt. <span class="lbl">theo buổi hoặc block</span></p></div>
+    <div class="card svc dv3"><h3>Đào tạo quản trị vận hành</h3><p>Sao lưu và khôi phục, thêm người dùng, đọc nhật ký, xử lý lỗi thường gặp. <span class="lbl">block giờ</span></p></div>
+    <div class="card svc dv3"><h3>Chuyển giao để tự vận hành</h3><p>Mã nguồn, tài khoản quản trị, tài liệu cấu hình, biên bản nghiệm thu, bảo hành 30 ngày. <span class="lbl">20% giá triển khai, tối thiểu 10 triệu</span></p></div>
+    <div class="card svc dv3"><h3>Dạy khách dùng Claude Code để tự chỉnh</h3><p>Có quy tắc an toàn. <span class="pend">đề xuất, cần thử</span></p></div>
+  </div>
+
+  <div class="two" style="margin-top:16px">
+    <div class="card"><h3>Cách tính</h3>
+      <ul class="t"><li>Block 10 giờ, 20 USD/giờ, cùng bảng giá giờ với tư vấn.</li><li>Đào tạo cơ bản đã ghi trong hợp đồng nằm trong giá dự án; phần thêm và chuyển giao mã nguồn tính riêng. <span class="pend">cần chốt</span></li><li>Chọn chuyển giao thì không có phí vận hành tháng; vẫn mua thêm được gói giờ hỗ trợ.</li></ul></div>
+    <div class="card" style="border-color:var(--dv3)"><h3>Bảo hành 30 ngày: nói đúng</h3>
+      <ul class="t"><li>Chỉ áp dụng khi <strong>bàn giao mã nguồn để khách tự vận hành</strong>.</li><li>Ngày bắt đầu ghi trong biên bản bàn giao.</li><li>Là sửa lỗi phần đã nghiệm thu, không phải thêm tính năng mới.</li><li>Website còn ghi chung chung "30 ngày": khi khách hỏi, trả lời theo điều kiện trên.</li></ul></div>
+  </div>
+</section>
+
+<section id="cua-vao">
+  <h2>Cửa vào chung: tư vấn quy trình</h2>
+  <p class="sub">Tám giai đoạn. <strong>Sale chỉ làm giai đoạn 0 và 5</strong> (ô viền cam). Giai đoạn 0 đến 5 gói gọn trong dưới một tuần làm việc với khách nhỏ và vừa, AI soạn nháp, người quyết định.</p>
+  <div class="phases">
+    <div class="ph sale"><b>0 · Tiếp nhận</b><small>20–30 phút, miễn phí, 6 câu sàng lọc</small><span class="who">SALE</span></div>
+    <div class="ph"><b>1 · Khảo sát</b><small>Phỏng vấn, xem tài liệu thật</small><span class="who">Tư vấn viên</span></div>
+    <div class="ph"><b>2 · Chẩn đoán</b><small>Điểm nghẽn, chấm sẵn sàng 5 trục</small><span class="who">Tư vấn viên</span></div>
+    <div class="ph"><b>3 · Lộ trình</b><small>Thắng nhanh, nền tảng, mở rộng</small><span class="who">Tư vấn viên</span></div>
+    <div class="ph"><b>4 · Quy trình mới</b><small>Đặc tả, đối chiếu nguyên mẫu</small><span class="who">Tư vấn viên</span></div>
+    <div class="ph sale"><b>5 · Hợp đồng</b><small>Báo giá đã duyệt, ký</small><span class="who">SALE + người duyệt</span></div>
+    <div class="ph"><b>6–7 · Triển khai, bàn giao</b><small>1–8 tuần tùy phạm vi</small><span class="who">Đội dựng</span></div>
+    <div class="ph"><b>8 · Theo dõi</b><small>Ngày 30 và 90, bán tiếp DV1/2/3</small><span class="who">Cả nhóm</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>Hai đường bán</h3>
+      <p><strong>Nhanh</strong> (khách nhỏ, nhu cầu rõ): 0 → 1 → 5 → 6 → 7.</p>
+      <p><strong>Đầy đủ</strong> (khách vừa, nhiều phòng ban, chưa rõ cần gì): 0 đến 8, gói "Chuẩn hóa quy trình" 3 block.</p></div>
+    <div class="card"><h3>Giá tư vấn</h3>
+      <ul class="t"><li>20 USD/giờ; block 10 giờ = 200 USD.</li><li>Gói "Chuẩn hóa quy trình" 3 block: mức giảm chốt tại từng thời điểm, sale không tự hứa.</li><li>Ký triển khai trong 30 ngày: trừ phí block khảo sát đầu.</li><li>Mua dashboard nhỏ rồi nâng cấp trong 60 ngày: trừ 100% phí dashboard.</li></ul></div>
+  </div>
+  <h3 style="margin-top:20px">Sáu câu sàng lọc ở giai đoạn 0</h3>
+  <ol class="t" style="margin-top:8px">
+    <li>Ngành gì, bao nhiêu nhân sự, bao nhiêu cơ sở?</li><li>Việc nào đang đau nhất?</li><li>Đang quản lý bằng gì?</li><li>Ai quyết định, ai dùng hằng ngày?</li><li>Thời gian và ngân sách mong muốn?</li><li>Từng thử phần mềm nào chưa, vì sao chưa ổn?</li>
+  </ol>
+  <div class="card" style="margin-top:14px"><h3>Nên từ chối hoặc chuyển hướng khi</h3><p>Muốn cả ERP lớn trong 2 tuần với ngân sách nhỏ; không có người quyết định; cần ngay kết nối ngân hàng, hóa đơn điện tử, thanh toán thẻ; chỉ "xem thử cho vui".</p></div>
+</section>
+
+<section id="chon">
+  <h2>Chọn dịch vụ theo điều khách nói</h2>
+  <p class="sub">Lọc theo dịch vụ để xem nhanh.</p>
+  <div class="tabs" id="filter" role="group" aria-label="Lọc theo dịch vụ"></div>
+  <div class="tablewrap"><table id="pick">
+    <thead><tr><th>Khách nói</th><th>Gợi ý</th><th>Lưu ý</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="ban">
+  <h2>Kịch bản bán ngắn</h2>
+  <h3 style="margin-top:14px">Mở đầu qua điện thoại (30 giây)</h3>
+  <div class="card" style="margin:10px 0 24px"><p>"Em gọi từ Zenflorix. Bên em dựng phần mềm quản lý chạy trên máy chủ riêng cho doanh nghiệp nhỏ, dựng từ hệ thống mẫu rồi chỉnh theo cách làm của mình, nên nhanh và rẻ hơn viết mới. Em xin 20 phút hỏi vài câu xem bên anh/chị đang vướng ở đâu. Nếu không phù hợp em nói luôn."</p></div>
+
+  <h3>Giải thích DV1 cho khách không rành công nghệ</h3>
+  <div class="card" style="margin:10px 0 24px"><p>"Thay vì mua phần mềm đóng gói rồi phải làm theo nó, hoặc thuê viết từ đầu mất vài tháng, bên em có sẵn hệ thống mẫu như quản lý khách hàng hay quản lý nhân sự. Mình ngồi vẽ cách làm hiện tại của anh/chị, đối chiếu với bản mẫu, chỗ nào khác thì chỉnh. Sau đó chạy trên máy chủ riêng của anh/chị, dữ liệu không lẫn với ai."</p></div>
+
+  <h3>Xử lý từ chối thường gặp</h3>
+  <div class="say" style="margin-top:10px">
+    <div class="line"><q>"Giá bao nhiêu?"</q><p>"Tùy mức khác biệt so với hệ thống mẫu nên em không báo số sai. Bên em khảo sát ngắn rồi gửi báo giá rõ từng khoản. Anh/chị cho em xin vài thông tin để người phụ trách gọi lại báo giá." <strong>Không đọc số nội bộ.</strong></p></div>
+    <div class="line"><q>"Phần mềm có sẵn rẻ hơn"</q><p>"Đúng, nếu cách làm của mình khớp với nó thì nên dùng. Bên em phù hợp khi quy trình của anh/chị riêng, hoặc cần dữ liệu để ở máy chủ riêng."</p></div>
+    <div class="line"><q>"AI viết có đáng tin không?"</q><p>"Mã do AI viết đều có người rà, kiểm thử chức năng và phân quyền, thử khôi phục sao lưu trước khi bàn giao. Chưa qua danh sách kiểm tra thì không triển khai."</p></div>
+    <div class="line"><q>"Sau này ai sửa?"</q><p>"Có hai hướng: bên em vận hành hằng tháng, hoặc bàn giao để anh/chị tự vận hành, kèm đào tạo và bảo hành 30 ngày."</p></div>
+    <div class="line"><q>"Chatbot thay được nhân viên không?"</q><p>"Chatbot trả lời phần lặp lại, câu khó chuyển cho người. Em không cam kết tăng doanh thu, nhưng giảm việc trả lời lặp."</p></div>
+    <div class="line"><q>"Làm trong bao lâu?"</q><p>"Tư vấn dưới một tuần làm việc nếu anh/chị đưa tài liệu và phản hồi trong ngày. Triển khai 1–8 tuần tùy phạm vi, sẽ ghi vào hợp đồng."</p></div>
+  </div>
+
+  <h3 style="margin-top:24px">Câu khám phá</h3>
+  <ul class="t"><li>Một ngày làm việc điển hình của anh/chị trông thế nào?</li><li>Việc nào lặp đi lặp lại mỗi ngày?</li><li>Lần gần nhất có sai sót lớn là khi nào, hậu quả ra sao?</li><li>Nếu chỉ sửa một việc trong 3 tháng tới, đó là việc gì?</li></ul>
+</section>
+
+<section id="cam">
+  <h2>Điều không được nói và không được làm</h2>
+  <div class="donot" style="margin-top:14px">
+    <div class="dn"><b>Hứa "tự động đúng luật"</b> lương, thuế, bảo hiểm, hóa đơn. Luôn cần khảo sát và xác nhận của kế toán khách.</div>
+    <div class="dn"><b>Hứa tăng doanh thu</b> hoặc tỷ lệ chuyển đổi X%. Không có số liệu.</div>
+    <div class="dn"><b>Báo giá mức NẶNG</b> hoặc báo giá cuối. Chỉ người duyệt báo sau khảo sát.</div>
+    <div class="dn"><b>Gửi bảng giá nội bộ</b> cho khách. Website không ghi giá, nhiều khoản chưa chốt.</div>
+    <div class="dn"><b>Nói "như bên khách X"</b> khi chưa được khách đó cho phép. Nguyên mẫu độc lập, không phải dự án khách.</div>
+    <div class="dn"><b>Hứa thời gian</b> khi khách chưa cung cấp đủ dữ liệu.</div>
+    <div class="dn"><b>Nhận dữ liệu thật</b> vào công cụ AI khi chưa ký thỏa thuận bảo mật.</div>
+    <div class="dn"><b>Tự giảm giá</b> ngoài chính sách. Chỉ người sáng lập chốt.</div>
+    <div class="dn"><b>Cam kết tích hợp bên thứ ba</b> (ngân hàng, sàn, hóa đơn điện tử). Đó là mức NẶNG.</div>
+    <div class="dn"><b>Hứa livestream và đăng bài AI "an toàn tuyệt đối"</b> với nền tảng. Phụ thuộc chính sách của Facebook, TikTok, YouTube.</div>
+  </div>
+
+  <h3 style="margin-top:24px">Ai được làm gì</h3>
+  <div class="roles" style="margin-top:10px">
+    <div class="card"><h3>Sale</h3><p>Giai đoạn 0 và 5, gửi báo giá đã duyệt, chăm sóc sau bán.</p><p style="color:var(--no)"><strong>Không:</strong> hứa phạm vi, báo giá NẶNG, ký hợp đồng.</p></div>
+    <div class="card"><h3>Tư vấn viên</h3><p>Giai đoạn 1–4, soạn biểu mẫu B1–B8.</p><p style="color:var(--no)"><strong>Không:</strong> ký hợp đồng. Báo cáo chẩn đoán và lộ trình do người sáng lập duyệt.</p></div>
+    <div class="card"><h3>Đội dựng</h3><p>Điều chỉnh nguyên mẫu, triển khai, có senior giám sát.</p><p style="color:var(--no)"><strong>Không:</strong> bàn giao khi chưa qua kiểm tra.</p></div>
+    <div class="card"><h3>Người sáng lập</h3><p>Duyệt báo giá mức vừa trở lên, chốt giá, ký hợp đồng.</p></div>
+  </div>
+</section>
+
+<section id="kiem-tra">
+  <h2>Kiểm tra cuối bài</h2>
+  <p class="sub">Tự trả lời trước, rồi bấm để xem đáp án.</p>
+  <details><summary>1. Kể tên 3 dịch vụ và nói khách trả tiền cho cái gì.</summary><p>DV1 hệ thống quản trị: trả một lần theo dự án. DV2 tool/agent AI: cài đặt + gói tháng + tư vấn. DV3 đào tạo và chuyển giao: theo giờ hoặc gói.</p></details>
+  <details><summary>2. Tư vấn quy trình có phải dịch vụ thứ tư không?</summary><p>Không. Là cửa vào chung của cả ba dịch vụ.</p></details>
+  <details><summary>3. Nguyên mẫu là gì? Có phải dự án đã làm cho khách không?</summary><p>Bộ tính năng cơ bản, định nghĩa độc lập, làm mốc so sánh. Không phải dự án của khách nào.</p></details>
+  <details><summary>4. Khách hỏi giá ngay trong cuộc gọi đầu. Em làm gì?</summary><p>Không báo số. Xin thông tin, hẹn người phụ trách báo giá sau khảo sát.</p></details>
+  <details><summary>5. HRM mini có tính lương không? Khách hỏi thì nói gì?</summary><p>Không. Lương luôn là việc ngoài nguyên mẫu, cần khảo sát và xác nhận với kế toán của khách.</p></details>
+  <details><summary>6. Bảo hành 30 ngày áp dụng khi nào?</summary><p>Khi bàn giao mã nguồn cho khách tự vận hành.</p></details>
+  <details><summary>7. Block tư vấn 10 giờ giá bao nhiêu? Ký trong bao lâu thì được trừ?</summary><p>200 USD. Ký triển khai trong 30 ngày thì trừ phí block khảo sát đầu.</p></details>
+  <details><summary>8. DV2 tách mấy khoản? Vì sao sale không báo giá gói sử dụng?</summary><p>Ba khoản: cài đặt, gói tháng, tư vấn. Chưa có số chi phí thật nên chưa chốt bảng gói.</p></details>
+  <details><summary>9. Kể 3 điều không được hứa với khách.</summary><p>Tăng doanh thu, "tự động đúng luật", mốc thời gian khi khách chưa đủ dữ liệu (và các mục ở phần "Không được hứa").</p></details>
+  <details><summary>10. Sale được làm giai đoạn nào của quy trình tư vấn?</summary><p>Giai đoạn 0 (tiếp nhận) và 5 (đề xuất, hợp đồng).</p></details>
+</section>
+
+<section class="open">
+  <h2>Đã chốt ngày 07/11/2026</h2>
+  <div class="card" style="margin-top:14px"><ol>
+    <li>Bỏ hẳn 4 Plan; bán theo 3 dịch vụ.</li>
+    <li>Nói chung "các nguyên mẫu có sẵn", kể ví dụ phổ thông, không gọi tên cụ thể từng nguyên mẫu với khách.</li>
+    <li>Bỏ giảm 10% từ module thứ hai.</li>
+    <li>DV2: gói tháng hoặc năm, dùng thử theo chính sách từng thời điểm, danh sách tool theo Marketing Agent.</li>
+    <li>DV3: tách phí chuyển giao (20%, tối thiểu 10 triệu) và phí đào tạo chuyển giao (theo giờ).</li>
+    <li>Giảm gói "Chuẩn hóa quy trình" chốt tại từng thời điểm. Mốc thanh toán 50% / 35% / 15%.</li>
+  </ol></div>
+  <h2 style="margin-top:28px">Còn mở</h2>
+  <div class="card" style="margin-top:14px"><ol>
+    <li>Giá gói sử dụng DV2 (cần số chi phí thật) và chính sách dùng thử cụ thể.</li>
+  </ol></div>
+</section>
+
+<footer>Nguồn: dinh-vi-lai-3-dich-vu-cot-loi, bang-tinh-nang-nguyen-mau-co-ban, crm-cong-thuc-bao-gia-cho-ai, quy-trinh-tu-van-chuyen-doi-so. Nội bộ Zenflorix, không gửi khách.</footer>
+</div>
+
+<script>
+var PROTO=[
+ {n:'CRM mini',has:['Quản lý khách, tìm và lọc, chống trùng theo số điện thoại','Nhập từ Excel, gán người phụ trách','Pipeline 5 bước: Mới, Đã liên hệ, Báo giá, Chốt, Mất (kèm lý do)','Lịch sử chăm sóc, nhắc việc "hôm nay gọi ai", giá trị cơ hội','4 báo cáo cơ bản; 2 vai trò: Quản lý, Nhân viên'],no:['Báo giá và hợp đồng PDF, danh mục sản phẩm','Nhiều cấp duyệt (ví dụ duyệt giảm giá)','Gửi Zalo, SMS, email tự động','Nhận khách từ form website hoặc Facebook','Chia khách tự động']},
+ {n:'HRM mini',has:['Hồ sơ nhân viên, phòng ban, chức vụ','Hợp đồng lao động, nhắc sắp hết hạn','Chấm công cơ bản trên điện thoại hoặc nhập tay','Nghỉ phép 1 cấp duyệt, tự trừ ngày phép; lịch nghỉ chung','3 vai trò: Nhân sự, Quản lý trực tiếp, Nhân viên'],no:['Bảng lương, bảo hiểm, thuế (luôn cần khảo sát)','Chấm công theo ca, GPS, vân tay, tăng ca','Tuyển dụng, đánh giá hiệu suất','Nhiều cấp duyệt, nhiều chi nhánh','Ký hợp đồng điện tử']},
+ {n:'Kho mini',has:['Danh mục hàng, nhập từ Excel, một kho','Phiếu nhập, phiếu xuất, tồn tự cập nhật, thẻ kho','Kiểm kê tự tính chênh lệch','Cảnh báo dưới mức tối thiểu, in phiếu','Báo cáo nhập–xuất–tồn; 2 vai trò'],no:['Nhiều kho, chuyển kho','Lô, hạn dùng, serial, mã vạch','Nhiều đơn vị tính, giá vốn tự động','Công nợ nhà cung cấp, đồng bộ sàn, kế toán']},
+ {n:'POS mini',has:['Màn hình bán hàng, giảm giá nhập tay','Tiền mặt và chuyển khoản (ghi tay), tính tiền thối','In phiếu bán, tự trừ tồn kho','Ca làm và chốt ca, báo cáo cuối ngày','Hủy hoặc hoàn đơn có quyền và lý do'],no:['Hóa đơn điện tử (không phải hóa đơn)','Máy in nhiệt, máy quét mã vạch','Thanh toán QR hoặc thẻ tự động','Combo, voucher, tích điểm, nhiều cửa hàng','Chạy khi mất mạng, bán online, mô hình bàn F&B']}
+];
+function li(a){return '<ul class="t">'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
+(function(){
+  var tabs=document.getElementById('tabs'),box=document.getElementById('proto');
+  function show(i){
+    Array.prototype.forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',j===i)});
+    var p=PROTO[i];
+    box.innerHTML='<div class="two"><div class="has"><h4>Có sẵn trong nền 10 triệu</h4>'+li(p.has)+'</div><div class="hasnt"><h4>Không có, tính thêm</h4>'+li(p.no)+'</div></div>';
+  }
+  PROTO.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=p.n;b.onclick=function(){show(i)};tabs.appendChild(b)});
+  show(0);
+})();
+var PICK=[
+ ['"Báo cáo cuối tháng làm cả ngày"','Cửa vào: dashboard nhỏ, sau đó DV1','Phễu nhẹ','DV1'],
+ ['"Sót khách, trùng người gọi, mất khách"','DV1 · CRM','Hỏi khách đến từ đâu, ai ghi','DV1'],
+ ['"Chấm công, nghỉ phép rối"','DV1 · HRM','Lương: nói thật, cần khảo sát, xác nhận với kế toán của khách','DV1'],
+ ['"Tồn kho lệch sổ"','DV1 · Kho','','DV1'],
+ ['"Bán ở quầy chậm, đối soát khó"','DV1 · POS','Hóa đơn điện tử là việc NẶNG','DV1'],
+ ['"Việc kẹt không biết ở ai"','Tư vấn rồi DV1 luồng duyệt','Chưa có nguyên mẫu, cần khảo sát','DV1'],
+ ['"Trả lời khách trên Zalo, Facebook mệt quá"','DV2 · Chatbot','Bán kèm CRM càng tốt','DV2'],
+ ['"Đăng bài, làm video không kịp"','DV2 · Agent marketing','Rủi ro chính sách nền tảng','DV2'],
+ ['"Có phần mềm rồi nhưng nhân viên không dùng"','DV3 · Đào tạo người dùng','','DV3'],
+ ['"Chúng tôi có dev, muốn tự giữ"','DV3 · Chuyển giao','Bảo hành 30 ngày','DV3'],
+ ['"Chưa biết cần gì"','Tư vấn block 10 giờ','200 USD, trừ nếu ký trong 30 ngày','ALL']
+];
+(function(){
+  var f=document.getElementById('filter'),tb=document.querySelector('#pick tbody'),cur='ALL';
+  function render(){
+    Array.prototype.forEach.call(f.children,function(b){b.setAttribute('aria-selected',b.dataset.k===cur)});
+    tb.innerHTML=PICK.filter(function(r){return cur==='ALL'||r[3]===cur||r[3]==='ALL'}).map(function(r){return '<tr><td>'+r[0]+'</td><td><strong>'+r[1]+'</strong></td><td>'+r[2]+'</td></tr>'}).join('');
+  }
+  [['ALL','Tất cả'],['DV1','Dịch vụ 1'],['DV2','Dịch vụ 2'],['DV3','Dịch vụ 3']].forEach(function(k){
+    var b=document.createElement('button');b.type='button';b.dataset.k=k[0];b.textContent=k[1];b.onclick=function(){cur=k[0];render()};f.appendChild(b)});
+  render();
+})();
+</script>
+
+</body>
+</html>

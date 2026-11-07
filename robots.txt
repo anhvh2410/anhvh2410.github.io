@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /dao-tao/
 
 Sitemap: https://io.zenflorix.com/sitemap.xml
